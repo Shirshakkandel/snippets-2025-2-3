@@ -1,0 +1,95 @@
+{
+	"Solidity File Setup": {
+		"prefix": "file",
+		"body": [
+			"// SPDX-License-Identifier: MIT",
+			"pragma solidity ^0.8.19;",
+			"",
+			"contract ${1:${TM_FILENAME_BASE}} {",
+			"    ${2:// contract body}",
+			"}"
+		],
+		"description": "Create a Solidity file with MIT license, pragma, and contract named after the file"
+	},
+	"Comment Block": {
+		"prefix": "comment",
+		"body": [
+			"/**",
+			" * @title ${1:Contract Title}",
+			" * @author ${2:Your Name}",
+			" * @notice ${3:Description of the contract}",
+			" * @dev ${4:Additional developer notes}",
+			" */"
+		],
+		"description": "Insert a Solidity NatSpec comment block"
+	},
+	"Contract Skeleton": {
+		"prefix": "contract",
+		"body": [
+			"contract ${1:ContractName} {",
+			"  $0",
+			"}"
+		],
+		"description": "Insert a basic Solidity contract structure"
+	},
+	"Contract Skeleton with One Inheritance": {
+		"prefix": "contract1",
+		"body": [
+			"contract ${1:ContractName} is ${2:BaseContract} {",
+			"    $0",
+			"}"
+		],
+		"description": "Insert a Solidity contract with single inheritance"
+	},
+	"Contract Skeleton with Two Inheritances": {
+		"prefix": "contract2",
+		"body": [
+			"contract ${1:ContractName} is ${2:BaseContract1}, ${3:BaseContract2} {",
+			"    $0",  
+			"}"
+		],
+		"description": "Insert a Solidity contract with multiple inheritance"
+	},
+	//SECTION::Variable
+	"Solidity Immutable Variable": {
+		"prefix": "immutable",
+		"body": [
+			"${1|uint256,bytes32,uint32,uint16|} private immutable i_${2:variableName};"
+		],
+		"description": "Insert an immutable Solidity variable which is gas efficient  with tab stops for type and name"
+	},       
+	"Solidity Function Template": {
+		"prefix": "function",
+		"body": [
+			"function ${1:functionName()} public {${2}}",
+		],
+		"description": "Create a Solidity function with customizable name and body"
+	},
+	"Solidity Payable Function": {
+		"prefix": "functionPayable",
+		"body": [
+			"function ${1:functionName()} public payable {",
+			"    ${2:// function body}",
+			"}"
+		],
+		"description": "Create a Solidity payable function with customizable name and body"
+	},
+	"Solidity Constructor with Parameter": {
+		"prefix": "constructor",
+		"body": [
+			"constructor(${1|uint256,uint8,int256,int8,bool,address,bytes,bytes32,string|} ${2:parameterName}) {",
+			"    i_${2} = ${2};",
+			"}",
+		],
+		"description": "Create a Solidity constructor with a customizable parameter type and internal variable assignment"
+	},
+	"Solidity Getter Function": {
+		"prefix": "getterFunction",
+		"body": [
+			"function get${1:VariableName()} public view returns (${2|uint256,uint8,int256,int8,bool,address,bytes,bytes32,string|}) {",
+			"    return ${3:i_variableName};",
+			"}"
+		],
+		"description": "Create a Solidity getter function with customizable return type and variable"
+	}
+}

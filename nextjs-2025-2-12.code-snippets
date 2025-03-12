@@ -1,0 +1,113 @@
+{
+	"0. Install Nextjs application": {
+		"scope": "javascript,typescript,javascriptreact,typescriptreact,json,bash",
+		"prefix": "nextInstall",
+		"body": [
+			"// ${1|pnpx,npx,yarn|} create-next-app@latest ${2:./}  --typescript --tailwind --eslint --src-dir ${3:--turbopack} --app "
+		],
+		"description": "Install nextjs latest version first tab for package manager and second tab for folder ./ is for current folder"
+	},
+	"0. shadcn install": {
+		"scope": "javascript,typescript,javascriptreact,typescriptreact,json,bash",
+		"prefix": "shadcnInstall",
+		"body": [
+			"// ${1|pnpx,npx,yarn|} shadcn@latest init ${2:-d} && ${1} shadcn@latest add "
+		],
+		"description": "Install nextjs latest version first tab for package manager and second tab for folder ./ is for current folder"
+	},
+	"1.Next.js Dynamic Page": {
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"prefix": "nextDynamicPage",
+		"body": [
+			"",
+			"",
+			"type Props = {",
+			"  params: Promise<{",
+			"   ${1:slug}: string;",
+			"  }>;",
+			"};",
+			"",
+			"//COMPONENT::Page",
+			"export default async function Page({ params }: Props) {",
+			"//SECTION::LOGIC PART",
+			"  const {${1:slug}} = await params;",
+			"",
+			"//SECTION::UI PART",
+			"  return <div>{${1:slug}}</div>;",
+			"}"
+		],
+		"description": "Create a Next.js dynamic page component with a slug parameter"
+	},
+	"2.Version 14  Next.js Dynamic Page": {
+		"scope": "javascript,typescript,javascriptreact,typescriptreact",
+		"prefix": "nextDynamicPageV14",
+		"body": [
+			"type Props = {",
+			"  params: {",
+			"   ${1:slug}: string;",
+			"  };",
+			"};",
+			"",
+			"export default async function Page({ params }: Props) {",
+			"  const {${1:slug}} =  params;",
+			"  return <div>{${1:slug}}</div>;",
+			"}"
+		],
+		"description": "Create a Next.js dynamic page component with a slug parameter"
+	},
+	"3. PropsComponent": {
+		"prefix": "propsComponent",
+		"body": [
+			"\"use client\"",
+			"",
+			"type Props = {",
+			"  ${1:code}: string;",
+			"};",
+			"",
+			"export default function ${TM_FILENAME_BASE}({ ${1:code} }: Props) {",
+			"  //SECTION::LOGIC PART",
+			"  //SECTION::UI PART",
+			"  return <div>{${1:code}}</div>;",
+			"}"
+		],
+		"description": "Generates a Props component with a dynamic filename"
+	},
+	"4. Image Component": {
+		"prefix": "nextImage",
+		"body": [
+			"<Image src=\"/${1:logo.png}\" width=\"${2:200}\" height=\"${3:200}\" alt=\"${4:Logo}\"   className='aspect-[${5:1867/544}]'  />"
+		],
+		"description": "Insert an Image component with customizable src, width, height, and alt attributes"
+	},
+	"5.Product Layout": {
+		"prefix": "layout",
+		"body": [
+			"export default ${1:async} function ${2:LayoutName}Layout({",
+			"  children,",
+			"}: {",
+			"  children: React.ReactNode;",
+			"}) {",
+			"    //SECTION::LOGIC PART",
+			"    ${3:// Add logic here}",
+			"\n    //SECTION::UI PART",
+			"  return <section>",
+			"    {children}",
+			"  </section>;",
+			"}"
+		],
+		"description": "Creates a  Layout component with a customizable product name and logic section."
+	},
+	"Component Page": {
+		"prefix": "component",
+		"body": [
+			"${1:\"use client\";}",
+			"\nexport default ${2:async} function ${TM_FILENAME_BASE}() {",
+			"  //SECTION LOGIC PART",
+			"  ${4:// Add logic here}",
+			"\n  //SECTION::UI PART",
+			"  return <div>${TM_FILENAME_BASE}</div>;",
+			"}"
+		],
+		"description": "Creates a  component where 'use client' is optional, and async & function name are customizable."
+	}
+}

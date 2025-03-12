@@ -1,0 +1,100 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"1. Setup express application": {
+		"scope": "javascript,typescript,json",
+		"prefix": "expressInstall",
+		"body": [
+			"// pnpx express-generator --no-view --git ./ && pnpm i -D nodemon"
+		],
+		"description": "install pure js express application using express-generator"
+	},
+	"2. Express Router Template": {
+		"prefix": "express-router",
+		"body": [
+			"import { Router } from 'express';",
+			"",
+			"const ${1:${TM_FILENAME_BASE/(.*)\\.routes/$1/}Router} = Router();",
+			"",
+			"${1:${TM_FILENAME_BASE/(.*)\\.routes/$1/}Router}.get('/', (req, res) => res.send({ body: { title: 'GET all ${1/(.*)Router$/$1/}s' }}));",
+			"",
+			"${1:${TM_FILENAME_BASE/(.*)\\.routes/$1/}Router}.get('/:id', (req, res) => res.send({ body: { title: 'GET ${1/(.*)Router$/$1/} details' }}));",
+			"",
+			"${1:${TM_FILENAME_BASE/(.*)\\.routes/$1/}Router}.post('/', (req, res) => res.send({ body: { title: 'CREATE new ${1/(.*)Router$/$1/}' }}));",
+			"",
+			"${1:${TM_FILENAME_BASE/(.*)\\.routes/$1/}Router}.put('/:id', (req, res) => res.send({ body: { title: 'UPDATE ${1/(.*)Router$/$1/}' }}));",
+			"",
+			"${1:${TM_FILENAME_BASE/(.*)\\.routes/$1/}Router}.delete('/:id', (req, res) => res.send({ body: { title: 'DELETE ${1/(.*)Router$/$1/}' }}));",
+			"",
+			"export default ${1:${TM_FILENAME_BASE/(.*)\\.routes/$1/}Router};"
+		],
+		"description": "Create an Express router using the filename to determine the router name."
+	},
+	"4.MongoDB Connection": {
+		"prefix": "mongodb-connect",
+		"body": [
+			"import mongoose from 'mongoose';",
+			"import { DB_URI, NODE_ENV } from '../config/env.js';",
+			"",
+			"if (!DB_URI) {",
+			"  throw new Error(",
+			"    'Please define the MONGODB_URI environment variable inside .env.<development/production>.local'",
+			"  );",
+			"}",
+			"",
+			"const connectToDatabase = async () => {",
+			"  try {",
+			"    await mongoose.connect(DB_URI);",
+			"",
+			"    console.log(`Connected to database in \\${NODE_ENV} mode`);",
+			"  } catch (error) {",
+			"    console.error('Error connecting to database: ', error);",
+			"",
+			"    process.exit(1);",
+			"  }",
+			"};",
+			"",
+			"export default connectToDatabase;"
+		],
+		"description": "Snippet for connecting to MongoDB using Mongoose."
+	},
+	"5. Customizable Mongoose Model": {
+		"prefix": "mongoose-model",
+		"body": [
+			"import mongoose from 'mongoose';",
+			"",
+			"const ${1:modelName}Schema = new mongoose.Schema(",
+			"  {",
+			"    ${2:fieldName}: {",
+			"      type: ${3:String},",
+			"      required: [true, 'Field is required'],",
+			"      ${6:trim: true},",
+			"      ${7:minLength: 2},",
+			"      ${8:maxLength: 50}",
+			"    },",
+			"    // Add more fields as needed",
+			"  },",
+			"  { timestamps: true }",
+			");",
+			"",
+			"const ${1:modelName} = mongoose.model('${1:modelName}', ${1:modelName}Schema);",
+			"",
+			"export default ${1:modelName};"
+		],
+		"description": "Create a Mongoose model with customizable schema fields"
+	}
+}
