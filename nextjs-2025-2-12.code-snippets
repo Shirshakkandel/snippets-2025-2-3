@@ -1,7 +1,7 @@
 {
 	"0. Install Nextjs application": {
-		"scope": "javascript,typescript,javascriptreact,typescriptreact,json,bash",
-		"prefix": "nextInstall",
+		"scope": "javascriptreact,typescriptreact,json,bash",
+		"prefix": "nextjsInstall",
 		"body": [
 			"// ${1|pnpx,npx,yarn|} create-next-app@latest ${2:./}  --typescript --tailwind --eslint --src-dir ${3:--turbopack} --app "
 		],
@@ -97,7 +97,7 @@
 		],
 		"description": "Creates a  Layout component with a customizable product name and logic section."
 	},
-	"Component Page": {
+	"6.Component Page": {
 		"prefix": "component",
 		"body": [
 			"${1:\"use client\";}",
@@ -109,5 +109,129 @@
 			"}"
 		],
 		"description": "Creates a  component where 'use client' is optional, and async & function name are customizable."
+	},
+	"Component with props": {
+		"prefix": "compoProps",
+		"body": [
+			"${1:\"use client\";}",
+			"import { HTMLAttributes, ButtonHTMLAttributes } from \"react\";",
+			"import { twMerge } from \"tailwind-merge\";",
+			"",
+			"type Props = {} & ${2|HTMLAttributes<HTMLDivElement>,ButtonHTMLAttributes<HTMLButtonElement>|};",
+			"",
+			"export default function ${TM_FILENAME_BASE}(props: Props) {",
+			"    //SECTION LOGIC PART",
+			"    const { className, children, ...otherProps } = props;",
+			"",
+			"    //SECTION::UI PART",
+			"    return (",
+			"        <${3|div,button|} className={twMerge(\"\", className)} {...otherProps}>",
+			"            ${4|Key,{children}|}",
+			"        </${3|div,button|}>",
+			"    );",
+			"}"
+		],
+		"description": "Creates a component with props"
+	},
+	"SectionContent Component": {
+		"prefix": "compoSectionContainerProps",
+		"body": [
+			"\"use client\";",
+			"import { HTMLAttributes } from \"react\";",
+			"import { twMerge } from \"tailwind-merge\";",
+			"type Props = {",
+			"  className?: string;",
+			"} & HTMLAttributes<HTMLDivElement>;",
+			"",
+			"export default function ${TM_FILENAME_BASE}(props: Props) {",
+			"  //SECTION LOGIC PART",
+			"  // Add logic here",
+			"  const { className, ...otherProps } = props;",
+			"  //SECTION::UI PART",
+			"  return (",
+			"    <div",
+			"      className={twMerge(",
+			"        \"container py-24 md:py-36 lg:py-48 overflow-hidden\",",
+			"        className",
+			"      )}",
+			"      {...otherProps}",
+			"    />",
+			"  );",
+			"}"
+		],
+		"description": "Creates a SectionContent component with the file name as the component name."
+	},
+	"7.Next.js Font with Tailwind": {
+		"prefix": "nextjsFontTailwind",
+		"scope": "javascriptreact,typescriptreact",
+		"body": [
+			"import { ${1:Archivo} } from \"next/font/google\";",
+			"",
+			"const ${2:archivo} = ${1:Archivo}({",
+			"  display: \"swap\",",
+			"  weight: \"variable\",",
+			"  subsets: [\"latin\"],",
+			"  variable: \"--font-${2:archivo}\",",
+			"});",
+			"",
+			"//body ${${2:archivo}.variable} font-${3:sans}",
+			"",
+			"// tailwind.config.ts",
+			"// extend: {",
+			"//   fontFamily: {",
+			"//     ${3:sans}: \"var(--font-${2:archivo})\",",
+			"//   },",
+			"// },"
+		],
+		"description": "Insert Next.js font configuration with Tailwind CSS integration."
+	},
+	"Next.js ESLint Config with Comments": {
+		"prefix": "nextjsEslintConfig",
+		"body": [
+			"//.eslintrc.json",
+			"",
+			"// {",
+			"//     \"extends\": \"next\"",
+			"//   }",
+			"",
+			"//eslint.config.mjs",
+			"//https://nextjs.org/docs/pages/api-reference/config/eslint#disabling-rules",
+			"import { FlatCompat } from \"@eslint/eslintrc\";",
+			"",
+			"const compat = new FlatCompat({",
+			"  // import.meta.dirname is available after Node.js v20.11.0",
+			"  baseDirectory: import.meta.dirname,",
+			"});",
+			"",
+			"const eslintConfig = [",
+			"  ...compat.config({",
+			"    extends: [\"next\"],",
+			"    rules: {",
+			"      \"react/no-unescaped-entities\": \"off\",",
+			"      \"@next/next/no-page-custom-font\": \"off\",",
+			"      \"@typescript-eslint/no-unused-vars\": \"off\",",
+			"    },",
+			"  }),",
+			"];",
+			"",
+			"export default eslintConfig;"
+		],
+		"description": "ESLint configuration for Next.js projects with comments and link"
+	},
+	"Import Google Fonts in Nextjs": {
+		"prefix": "importGoogleFontsNextjs",
+		"body": [
+			"import { ${1|Inter,Calistoga|}, ${2|Inter,Calistoga|} } from 'next/font/google';",
+			"",
+			"const ${3:inter} = ${1}({ subsets: ['latin'], variable: '--font-sans' });",
+			"",
+			"const ${4:calistoga} = ${2}({",
+			"  subsets: ['latin'],",
+			"  variable: '--font-serif',",
+			"  weight: ['400'],",
+			"});",
+			"",
+		],
+		"description": "Import Google Fonts and initialize with metadata in Next.js"
 	}
 }

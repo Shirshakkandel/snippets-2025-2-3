@@ -1,0 +1,87 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	"Map Nav Items": {
+		"prefix": "mapNavItems",
+		"body": [
+			"<nav>",
+			"  {${1|navItems,footerLinks|}.map(({ ${2:href}, ${3:name} }, index) => (",
+			"    <a href={${2}} key={${2}}>",
+			"      {${3}}",
+			"    </a>",
+			"  ))}",
+			"</nav>"
+		],
+		"description": "Map over navItems or footerLinks to create navigation links"
+	},
+	"Map FAQs to Divs": {
+		"prefix": "mapDiv",
+		"body": [
+			"<div className={``}>",
+			"    {${1:faqs}.map(({${2:question}, answer }) => (",
+			"        <div key={${2:question}}>",
+			"            <div>${2}</div>",
+			"        </div>",
+			"    ))}",
+			"</div>"
+		],
+		"description": "Snippet for mapping over an array of FAQs and rendering divs with question and answer"
+	},
+	"ArrayFromSnippet": {
+		"prefix": "arrayFrom",
+		"body": [
+			"{Array.from({ length: ${1:10} }).map((_, i) => (",
+			"  <div key={i}>",
+			"    <span>&#10038;</span>",
+			"    <span>Try it for free</span>",
+			"  </div>",
+			"))}"
+		],
+		"description": "Creates an Array.from snippet with customizable length"
+	},
+	"Section Component": {
+		"prefix": "sectionComponent",
+		"body": [
+			"${1:'use client';}",
+			"",
+			"export default function ${TM_FILENAME_BASE}() {",
+			"  //SECTION LOGIC PART",
+			"",
+			"  //SECTION::UI PART",
+			"  return (",
+			"    <section className={`py-24`}>",
+			"      <div className={`container`}>",
+			"        $2",
+			"      </div>",
+			"    </section>",
+			"  );",
+			"}"
+		],
+		"description": "Snippet for a section component with placeholders for 'use client' and container content"
+	},
+	"Video Element in Features": {
+		"prefix": "video",
+		"body": [
+			"<video",
+			"  src={'${1:/assets/gif-incredible.mp4}'}",
+			"  autoPlay",
+			"  loop",
+			"  muted",
+			"  playsInline",
+			"  className={`${2}`}",
+			"/>"
+		],
+		"description": "Snippet for a video element with default src and className in Features component"
+	},
+	"onClick ShortCut": {
+		"prefix": "onClick",
+		"body": [
+			"onClick={() => {${1:setSelectedIndex(index)}}}"
+		],
+		"description": "Snippet for onClick event handler with setSelectedIndex(index)"
+	}
+}

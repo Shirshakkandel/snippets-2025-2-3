@@ -5,11 +5,50 @@
 	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
 	// Placeholders with the same ids are connected.
-	"Install Prisma Packages": {
+	"1. Install Prisma Packages": {
 		"prefix": "prismaInstall",
 		"body": [
 			"// ${1|pnpm,yarn,npm|} install -D prisma && ${1|pnpm,yarn,npm|} install @prisma/client && pnpx prisma init --datasource-provider ${2|prisma+postgres,sqlite,postgresql,mysql,sqlserver,mongodb,cockroachdb|}"
 		],
 		"description": "Snippet to install Prisma and @prisma/client using different package managers"
+	},
+	"2.Prisma Client Setup": {
+		"prefix": "prismaClient",
+		"scope": "typescript,javascript",
+		"body": [
+			"import { PrismaClient } from \"@prisma/client\";",
+			"",
+			"// Declare a global variable ${1:${TM_FILENAME_BASE}} of type PrismaClient or undefined.",
+			"// This ensures that the ${1:${TM_FILENAME_BASE}} instance is available globally throughout the application.",
+			"declare global {",
+			"  var ${1:${TM_FILENAME_BASE}}: PrismaClient | undefined;",
+			"}",
+			"",
+			"// Create a new instance of PrismaClient if globalThis.${1:${TM_FILENAME_BASE}} is falsy (i.e., undefined).",
+			"// Otherwise, use the existing instance of ${1:${TM_FILENAME_BASE}}.",
+			"// The globalThis object is a standardized way to access the global object in JavaScript, regardless of the environment (browser, Node.js, etc.).",
+			"const ${1:${TM_FILENAME_BASE}} = globalThis.${1:${TM_FILENAME_BASE}} || new PrismaClient();",
+			"",
+			"// Assign the ${1:${TM_FILENAME_BASE}} instance to globalThis.${1:${TM_FILENAME_BASE}} if the application is not running in a production environment.",
+			"// This ensures that the ${1:${TM_FILENAME_BASE}} instance is available globally during development and testing, but not in production,",
+			"// where it might cause issues with multiple instances of the Prisma client.",
+			"if (process.env.NODE_ENV !== \"production\") globalThis.${1:${TM_FILENAME_BASE}} = ${1:${TM_FILENAME_BASE}};",
+			"",
+			"export default ${1:${TM_FILENAME_BASE}};"
+		],
+		"description": "Setup for Prisma Client with global instance management"
+	},
+	"Prisma Scripts for Package.json": {
+		"prefix": "prismaScripts",
+		"scope": "json",
+		"body": [
+			"\"db:generate\": \"npx prisma generate\",",
+			"\"db:push\": \"npx prisma db push\",",
+			"\"db:push-force\": \"npx prisma db push --force-reset\",",
+			"\"db:studio\": \"npx prisma studio\",",
+			"\"dev:all\": \"npx concurrently \\\"npm run dev\\\"  \\\"npm run db:studio\\\"\",",
+			"\"postinstall\": \"npx prisma generate\""
+		],
+		"description": "Snippet for adding Prisma scripts to package.json"
 	}
 }

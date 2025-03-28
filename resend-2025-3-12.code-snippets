@@ -1,0 +1,72 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"1. Send Email Function": {
+		"prefix": "resendEmail",
+		"scope": "typescript,javascript",
+		"body": [
+			"\"use server\";",
+			"// import sgMail from \"@sendgrid/mail\";",
+			"import { Resend } from \"resend\";",
+			"",
+			"export async function sendEmail({",
+			"  to,",
+			"  subject,",
+			"  text,",
+			"}: {",
+			"  to: string;",
+			"  subject: string;",
+			"  text: string;",
+			"}) {",
+			"  if (!process.env.RESEND_API_KEY) {",
+			"    throw new Error(\"RESEND_API_KEY environment variable is not set\");",
+			"  }",
+			"  if (!process.env.EMAIL_FROM) {",
+			"    throw new Error(\"EMAIL_FROM environment variable is not set\");",
+			"  }",
+			"  const resend = new Resend(process.env.RESEND_API_KEY);",
+			"",
+			"  // sgMail.setApiKey(process.env.SENDGRID_API_KEY);",
+			"",
+			"  const message = {",
+			"    to: to.toLowerCase().trim(),",
+			"    from: process.env.EMAIL_FROM,",
+			"    subject: subject.trim(),",
+			"    text: text.trim(),",
+			"  };",
+			"",
+			"  try {",
+			"    const { data, error } = await resend.emails.send(message);",
+			"",
+			"    if (error) {",
+			"      throw new Error(`SendGrid API returned status code ${error.message}`);",
+			"    }",
+			"",
+			"    return {",
+			"      success: true,",
+			"    };",
+			"  } catch (error) {",
+			"    console.error(\"Error sending email:\", error);",
+			"    return {",
+			"      success: false,",
+			"      message: \"Failed to send email. Please try again later.\",",
+			"    };",
+			"  }",
+			"}"
+		],
+		"description": "Function to send an email using Resend API in nextjs server action"
+	},
+	"Insert Email and Resend API Key": {
+		"prefix": "resendEnv",
+		"body": [
+			"EMAIL_FROM=${1:email@shirshakkandel.com.np}",
+			"RESEND_API_KEY=${2:re_enKqzUf4_FWkcgPdfdfsdfashrBHGHBWmPpz3}"
+		],
+		"description": "Insert EMAIL_FROM and RESEND_API_KEY into the .env file"
+	}
+}
