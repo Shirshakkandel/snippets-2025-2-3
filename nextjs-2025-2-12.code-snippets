@@ -133,6 +133,49 @@
 		],
 		"description": "Creates a component with props"
 	},
+	"Component with CVA": {
+		"prefix": "componentPropsCva",
+		"body": [
+			"'use client';",
+			"import { HTMLAttributes, ButtonHTMLAttributes } from \"react\";",
+			"import { cva } from 'class-variance-authority';",
+			"",
+			"export type ${TM_FILENAME_BASE}Props = {",
+			"  variant?: 'primary' | 'secondary';",
+			"} & ${2|HTMLAttributes<HTMLDivElement>,ButtonHTMLAttributes<HTMLButtonElement>|};",
+			"",
+			"const classes = cva('', {",
+			"  variants: {",
+			"    variant: {",
+			"      primary: '',",
+			"      secondary: '',",
+			"    },",
+			"  },",
+			"  defaultVariants: {",
+			"    variant: 'primary',",
+			"  },",
+			"});",
+			"",
+			"export default function ${TM_FILENAME_BASE}(props: ${TM_FILENAME_BASE}Props) {",
+			"  //SECTION LOGIC PART",
+			"  const { className, children, variant, ...otherProps } = props;",
+			"",
+			"  //SECTION::UI PART",
+			"  return (",
+			"    <${3|div,button|} className={classes({ variant, className, ...otherProps })}>",
+			"            ${4|Key,{children}|}",
+			"    </${3|div,button|}>",
+			"  );",
+			"}",
+			"",
+			"// satisfies {",
+			"//   name: string;",
+			"//   href: string;",
+			"//   ${TM_FILENAME_BASE}Variant: ${TM_FILENAME_BASE}Props['variant'];",
+			"// }[];"
+		],
+		"description": "Create a component with CVA and dynamic name based on file name"
+	},
 	"SectionContent Component": {
 		"prefix": "compoSectionContainerProps",
 		"body": [
@@ -219,9 +262,9 @@
 		"description": "ESLint configuration for Next.js projects with comments and link"
 	},
 	"Import Google Fonts in Nextjs": {
-		"prefix": "importGoogleFontsNextjs",
+		"prefix": "fontsSansSerif",
 		"body": [
-			"import { ${1|Inter,Calistoga|}, ${2|Inter,Calistoga|} } from 'next/font/google';",
+			"import { ${1|Inter,Calistoga,Archivo|}, ${2|Inter,Calistoga,Archivo|} } from 'next/font/google';",
 			"",
 			"const ${3:inter} = ${1}({ subsets: ['latin'], variable: '--font-sans' });",
 			"",
@@ -233,5 +276,12 @@
 			"",
 		],
 		"description": "Import Google Fonts and initialize with metadata in Next.js"
+	},
+	"Import Google San serif Fonts with Next.js": {
+		"prefix": "fontSanNextjs",
+		"body": [
+			"import { Sora, Space_Grotesk, Inter, Archivo } from \"next/font/google\";"
+		],
+		"description": "Import Google Fonts with Next.js"
 	}
 }

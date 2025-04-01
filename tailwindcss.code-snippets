@@ -42,7 +42,7 @@
 	"Tailwind Text Gradient": {
 		"prefix": "twTextGradient",
 		"body": [
-			"bg-gradient-to-r from-${1:purple-400} to-${2:pink-400} bg-clip-text text-transparent"
+			"bg-gradient-to-r from-${1|purple-400,emerald-300|} to-${2|pink-400,sky-300|} bg-clip-text text-transparent"
 		],
 		"description": "Snippet for Tailwind CSS gradient text with customizable from and to colors"
 	},
@@ -172,5 +172,23 @@
 			"bg-gray-900 text-white antialiased"
 		],
 		"description": "Apply dark mode styles to a component"
+	},
+	"Light Body Class Name": {
+		"prefix": "lightBodyClassName",
+		"scope": "html,javascript,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"antialiased bg-stone-200 text-stone-900"
+		],
+		"description": "Apply light mode styles to a component"
+	},
+	"fontFamilyTailwindConfig": {
+		"prefix": "fontFamilyTailwindConfig",
+		"body": [
+			"fontFamily: {",
+			"  sans: 'var(--font-sans)',",
+			"  serif: 'var(--font-serif)',",
+			"},"
+		],
+		"description": "Tailwind CSS fontFamily configuration"
 	}
 }

@@ -1,0 +1,150 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"navItemTailwind": {
+		"prefix": "navItemTailwind",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold hover:bg-white/10 hover:text-white transition duration-300"
+		],
+		"description": "Tailwind CSS navigation item styling"
+	},
+	"absoluteCenter": {
+		"prefix": "absoluteCenter",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"absolute ${1:inset-0} left-1/2 top-1/2 size-[${2:620px}] -translate-x-1/2 -translate-y-1/2"
+		],
+		"description": "Tailwind Css absolute center"
+	},
+	"scopeWebsite": {
+		"prefix": "scopeReact",
+		"body": [
+			"\"scope\": \"javascriptreact,typescriptreact\","
+		],
+		"description": "Tailwind CSS navigation item styling"
+	},
+	"scopeReact": {
+		"prefix": "scopeWebsite",
+		"body": [
+			"\"scope\": \"html,javascript,typescript,javascriptreact,typescriptreact\","
+		],
+		"description": "Tailwind CSS navigation item styling"
+	},
+	"navItemTailwindBase": {
+		"prefix": "navItemTailwindBase",
+		"scope": "css",
+		"body": [
+			".nav-item {",
+			"  @apply px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold hover:bg-white/10 hover:text-white transition duration-300",
+			"}"
+		],
+		"description": "Tailwind CSS base styles for navigation items"
+	},
+	"borderContainer": {
+		"prefix": "borderContainer",
+		"scope": "html,javascript,typescript,javascriptreact,typescriptreact,css",
+		"body": [
+			"flex items-center gap-4 rounded-lg border border-gray-800 bg-gray-950 px-4 py-1.5"
+		],
+		"description": "Tailwind CSS styles for a bordered container"
+	},
+	"grainImageBackground": {
+		"prefix": "grainImageBackground",
+		"scope": "html,javascript,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"{/* // Reference: https://github.com/Shirshakkandel/frontend-tribe-single-page-dev-portfolio-resource-bundle */}",
+			"<div",
+			"  className=\"absolute inset-0 -z-30 opacity-5\"",
+			"  style={{",
+			"    background: `url(${grainImage.src})`,",
+			"  }}",
+			"></div>"
+		],
+		"description": "Div with grain image background"
+	},
+	"heroRingsSection": {
+		"prefix": "heroRingsSection",
+		"scope": "typescriptreact",
+		"body": [
+			"{/* COMMENT::Hero Ring */}",
+			"<>",
+			"  <div className={`hero-ring size-[620px]`} />",
+			"  <div className={`hero-ring size-[820px]`} />",
+			"  <div className={`hero-ring size-[1020px]`} />",
+			"  <div className={`hero-ring size-[1220px]`} />",
+			"</>"
+		],
+		"description": "Hero section with multiple ring divs"
+	},
+	"heroRingTailwind": {
+		"prefix": "heroRingTailwind",
+		"scope": "html,javascript,css,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"absolute inset-0 left-1/2 top-1/2 size-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5"
+		],
+		"description": "Tailwind CSS styles for hero ring"
+	},
+	"heroRingTailwindBase": {
+		"prefix": "heroRingTailwindBase",
+		"scope": "css",
+		"body": [
+			".hero-ring {",
+			"  @apply absolute inset-0 left-1/2 top-1/2 size-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5;",
+			"}"
+		],
+		"description": "Tailwind CSS base styles for hero ring"
+	},
+	"borderCheck": {
+		"prefix": "borderCheck",
+		"scope": "html,javascript,css,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"border border-red-500",
+		],
+		"description": "Checking layout with border"
+	},
+	"outlineCheck": {
+		"prefix": "outlineCheck",
+		"scope": "html,javascript,css,typescript,javascriptreact,typescriptreact",
+		"body": [
+			"outline outline-1 outline-red-500",
+		],
+		"description": "Checking layout with outline"
+	},
+	"CSS Fade Out Transparent": {
+		"prefix": "fadeOutTransparent",
+		"body": [
+			"absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]"
+		],
+		"description": "Insert CSS style for fade out transparent effect"
+	},
+	"Relative Input": {
+		"prefix": "relativeInput",
+		"body": [
+			"<div className=\"relative h-fit\">",
+			"  <input",
+			"    className=\"w-full rounded-md border border-gray-300 px-3 pt-7 pb-1 text-sm focus:border-black focus:outline-none\"",
+			"    type=\"${1:email}\"",
+			"    name=\"${2:email}\"",
+			"    required",
+			"  />",
+			"  <label className=\"absolute top-2 left-3 text-[12px]\">${3:EMAIL}</label>",
+			"</div>"
+		],
+		"description": "Relative input with customizable type, name, and label"
+	}
+}
