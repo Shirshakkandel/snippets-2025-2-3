@@ -41,7 +41,7 @@
 	"scopeReact": {
 		"prefix": "scopeWebsite",
 		"body": [
-			"\"scope\": \"html,javascript,typescript,javascriptreact,typescriptreact\","
+			"\"scope\": \"html,css,javascript,typescript,javascriptreact,typescriptreact\","
 		],
 		"description": "Tailwind CSS navigation item styling"
 	},

@@ -388,5 +388,48 @@
 			"}"
 		],
 		"description": "Insert Button component with primary border gradient and comments"
+	},
+	"Section Header with Eyebrow": {
+		"prefix": "SectionHeaderEyebrow",
+		"body": [
+			"'use client';",
+			"",
+			"type SectionHeaderProps = {",
+			"  eyebrow: string;",
+			"  title: string;",
+			"  description: string;",
+			"};",
+			"",
+			"export default function SectionHeader({",
+			"  title,",
+			"  eyebrow,",
+			"  description,",
+			"}: SectionHeaderProps) {",
+			"  //SECTION::LOGIC PART",
+			"  //SECTION::UI PART",
+			"  return (",
+			"    <>",
+			"      <div className={`flex justify-center`}>",
+			"        <p",
+			"          className={`bg-gradient-to-r from-emerald-300 to-sky-300 bg-clip-text text-center font-semibold uppercase tracking-widest text-transparent`}",
+			"        >",
+			"          {eyebrow}",
+			"        </p>",
+			"      </div>",
+			"",
+			"      <h2 className={`mt-6 text-center font-serif text-3xl md:text-5xl`}>",
+			"        {title}",
+			"      </h2>",
+			"",
+			"      <p",
+			"        className={`mx-auto mt-4 max-w-md text-center text-white/60 md:text-lg`}",
+			"      >",
+			"        {description}",
+			"      </p>",
+			"    </>",
+			"  );",
+			"}"
+		],
+		"description": "React functional component for a section header with an eyebrow, title, and description."
 	}
 }
