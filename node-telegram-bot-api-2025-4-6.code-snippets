@@ -1,0 +1,17 @@
+{
+	"Node Telegram Bot Config": {
+		"prefix": "telegramBotConfig",
+		"body": [
+			"// ${1|bun,pnpm,npm,yarn|} add node-telegram-bot-api && ${1|bun,pnpm,npm,yarn|} add --save-dev @types/node-telegram-bot-api",
+			"// backend\\src\\lib\\telegram\\config.ts",
+			"import TelegramBot from 'node-telegram-bot-api';",
+			"",
+			"const telegramToken = process.env.TELEGRAM_TOKEN || '';",
+			"",
+			"const bot = new TelegramBot(telegramToken, { polling: true });",
+			"",
+			"export default bot;"
+		],
+		"description": "Node Telegram Bot Configuration with comments"
+	}
+}

@@ -1,9 +1,9 @@
 {
 	"0. Install Nextjs application": {
-		"scope": "javascriptreact,typescriptreact,json,bash",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
 		"prefix": "nextjsInstall",
 		"body": [
-			"// ${1|pnpx,npx,yarn|} create-next-app@latest ${2:./}  --typescript --tailwind --eslint --src-dir ${3:--turbopack} --app "
+			"// ${1|pnpx,bun,npx,yarn|} ${2|create-next-app,create next-app|} ${3:./}  --typescript --tailwind --eslint --src-dir ${4:--turbopack} --app "
 		],
 		"description": "Install nextjs latest version first tab for package manager and second tab for folder ./ is for current folder"
 	},

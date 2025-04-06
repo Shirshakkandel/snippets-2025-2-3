@@ -34,14 +34,14 @@
 	"scopeWebsite": {
 		"prefix": "scopeReact",
 		"body": [
-			"\"scope\": \"javascriptreact,typescriptreact\","
+			"\"scope\": \"javascriptreact,typescriptreact,json\","
 		],
 		"description": "Tailwind CSS navigation item styling"
 	},
 	"scopeReact": {
 		"prefix": "scopeWebsite",
 		"body": [
-			"\"scope\": \"html,css,javascript,typescript,javascriptreact,typescriptreact\","
+			"\"scope\": \"html,css,javascript,typescript,javascriptreact,typescriptreact,json\","
 		],
 		"description": "Tailwind CSS navigation item styling"
 	},
@@ -67,7 +67,8 @@
 		"prefix": "grainImageBackground",
 		"scope": "html,javascript,typescript,javascriptreact,typescriptreact",
 		"body": [
-			"{/* // Reference: https://github.com/Shirshakkandel/frontend-tribe-single-page-dev-portfolio-resource-bundle */}",
+			"{/*  Reference: https://github.com/Shirshakkandel/frontend-tribe-single-page-dev-portfolio-resource-bundle */}",
+			"{/* import grainImage from '@/assets/images/grain.jpg'; */}",
 			"<div",
 			"  className=\"absolute inset-0 -z-30 opacity-5\"",
 			"  style={{",
@@ -98,7 +99,7 @@
 			"absolute inset-0 left-1/2 top-1/2 size-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5"
 		],
 		"description": "Tailwind CSS styles for hero ring"
-	},
+	}, 
 	"heroRingTailwindBase": {
 		"prefix": "heroRingTailwindBase",
 		"scope": "css",

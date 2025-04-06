@@ -431,5 +431,42 @@
 			"}"
 		],
 		"description": "React functional component for a section header with an eyebrow, title, and description."
+	},
+	"Card Component": {
+		"prefix": "cardGrainImageBgComponent",
+		"body": [
+			"//https://github.com/Shirshakkandel/frontend-tribe-single-page-dev-portfolio-resource-bundle",
+			"'use client';",
+			"import { HTMLAttributes } from 'react';",
+			"import { twMerge } from 'tailwind-merge';",
+			"import grainImage from '@/assets/images/grain.jpg';",
+			"",
+			"type Props = {} & HTMLAttributes<HTMLDivElement>;",
+			"",
+			"export default function Card(props: Props) {",
+			"  //SECTION LOGIC PART",
+			"  const { className, children, ...otherProps } = props;",
+			"",
+			"  //SECTION::UI PART",
+			"  return (",
+			"    <div",
+			"      className={twMerge(",
+			"        'relative z-0 overflow-hidden rounded-3xl bg-gray-800 p-6 after:pointer-events-none after:absolute after:inset-0 after:z-10 after:rounded-3xl after:outline after:outline-2 after:-outline-offset-2 after:outline-white/20 after:content-[\"\"]',",
+			"        className,",
+			"      )}",
+			"      {...otherProps}",
+			"    >",
+			"      <div",
+			"        className=\"absolute inset-0 -z-30 opacity-5\"",
+			"        style={{",
+			"          background: `url(${grainImage.src})`,",
+			"        }}",
+			"      />",
+			"      {children}",
+			"    </div>",
+			"  );",
+			"}"
+		],
+		"description": "A reusable Card component with Tailwind CSS and background image."
 	}
 }

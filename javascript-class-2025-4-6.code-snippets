@@ -1,0 +1,40 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"JavaScript Class": {
+		"prefix": "jsClass",
+		"body": [
+			"//https://www.youtube.com/watch?v=ZhPUMj1LXhY&ab_channel=TechGun",
+			"//https://www.notion.so/shirshakkandel/Code-Snippet-2024-11-8-13cfdab0071e80098afcd9e8e8bee8e8?pvs=4#1cdfdab0071e80319513dbe42fb1d0df",
+			"class ${1:ClassName} {",
+			"//constructor method=> used to set default value.",
+			"  constructor(${2:name}, ${3:age}) {",
+			"    this.name = ${2:name};",
+			"    this.age = ${3:age};",
+			"  }",
+			"",
+			" //prototype method",
+			"  sayHi() {",
+			"    console.log('Hi...');",
+			"  }",
+			"",
+			" //static method=> call by class not by object",
+			"  static hello() {",
+			"    console.log('I am static method');",
+			"  }",
+			"}",
+			"",
+			"//SECTION::Object creation",
+			"let ${1:ClassName}1 = new ${1:ClassName}('${4:\"shirshak\"}', ${5:26});",
+			"${1:Classname}1.sayHi();",
+			"${1:ClassName}.hello();",
+			"console.log('${1:ClassName}', ${1:className}1);"
+		],
+		"description": "Create a JavaScript class with constructor, prototype method, and static method."
+	}
+}

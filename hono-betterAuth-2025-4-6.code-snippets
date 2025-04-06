@@ -1,0 +1,46 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	"Hono Add Session Middleware": {
+		"prefix": "HonoAddSessionMiddleBetter",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"import type { Context, Next } from 'hono';",
+			"import { auth } from '../lib/better-auth/auth.js';",
+			"",
+			"export const addSession = async (c: Context, next: Next) => {",
+			"  const session = await auth.api.getSession({",
+			"    headers: c.req.raw.headers,",
+			"  });",
+			"",
+			"  if (!session) {",
+			"    c.set('user', null);",
+			"    c.set('session', null);",
+			"    return next();",
+			"  }",
+			"",
+			"  c.set('user', session.user);",
+			"  c.set('session', session.session);",
+			"  return next();",
+			"};"
+		],
+		"description": "Hono Add Session Middleware"
+	},
+	"Hono Instance with Better Variable": {
+		"prefix": "HonoInstanceWithBetterVariable",
+		"body": [
+			"// Hono Application Instance with better auth variable",
+			"const app = new Hono<{",
+			"  Variables: {",
+			"    user: typeof auth.\\$Infer.Session.user | null;",
+			"    session: typeof auth.\\$Infer.Session.session | null;",
+			"  };",
+			"}>();"
+		],
+		"description": "Hono Application Instance with better auth variable"
+	}
+}
