@@ -14,5 +14,38 @@
 			"BETTER_AUTH_URL=${2:http://localhost:3000} #Base URL of your app"
 		],
 		"description": "Snippet for Better Auth environment variables"
+	},
+	"BetterGithub": {
+		"prefix": "BetterGithub",
+		"body": [
+			"//https://github.com/settings/applications/new",
+			"//Homepage=> http://localhost:3000/",
+			"//Authorization callback url=> http://localhost:8080/api/auth/callback/github",
+			"// GITHUB_CLIENT_ID=  GITHUB_CLIENT_SECRET=",
+			"//auth.ts=> socialProviders",
+			"github: {",
+			"  clientId: GITHUB_CLIENT_ID,",
+			"  clientSecret: GITHUB_CLIENT_SECRET,",
+			"},"
+		],
+		"description": "Snippet for GitHub provider configuration"
+	},
+	"Better Auth Session": {
+		"prefix": "betterIAuthSession",
+		"scope": "javascript,typescript",
+		"body": [
+			"import { auth } from './auth.js';",
+			"",
+			"export const Session = auth.\\$Infer.Session.session;",
+			"export const User = auth.\\$Infer.Session.user;",
+			"",
+			"export interface AuthSession {",
+			"  Variables: {",
+			"    user: typeof User | null;",
+			"    session: typeof Session | null;",
+			"  };",
+			"}"
+		],
+		"description": "Insert Better Auth Session interface"
 	}
 }

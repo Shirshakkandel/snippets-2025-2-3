@@ -1,0 +1,44 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	"Paddle Price Create": {
+		"prefix": "paddlePriceCreate",
+		"body": [
+			"const price = await paddle.prices.create({",
+			"  name: `Price for ${1:groupInfo?.name}`,",
+			"  productId: PADDLE_PRODUCT_ID,",
+			"  billingCycle: {",
+			"    interval: 'month',",
+			"    frequency: 1,",
+			"  },",
+			"  taxMode: 'external',",
+			"  description: `Created by user ${2:user?.email}`,",
+			"  unitPrice: {",
+			"    amount: ${3:priceToUpdate},",
+			"    currencyCode: 'USD',",
+			"  },",
+			"  quantity: {",
+			"    minimum: 1,",
+			"    maximum: 9999999,",
+			"  },",
+			"});"
+		],
+		"description": "Create a price using Paddle API with customizable groupInfo"
+	},
+	"Paddle Price Update": {
+		"prefix": "paddlePriceUpdate",
+		"body": [
+			"const price = await paddle.prices.update(${1:groupInfo.price_id}, {",
+			"  unitPrice: {",
+			"    amount: ${2:priceToUpdate},",
+			"    currencyCode: 'USD',",
+			"  },",
+			"});"
+		],
+		"description": "Update a price using Paddle API with customizable price_id and amount"
+	}
+}

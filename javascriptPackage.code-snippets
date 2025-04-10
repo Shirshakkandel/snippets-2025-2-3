@@ -22,7 +22,7 @@
 	"Console log": {
 		"prefix": "clg",
 		"body": [
-			"console.log('${1:log element}')"
+			"console.log(${1:'log element'})"
 		]
 	},
 	"packageLintTscCheck": {
@@ -47,6 +47,27 @@
 			"}"
 		],
 		"description": "Snippet for husky configuration in package.json"
+	},
+	"scopeWebsite": {
+		"prefix": "scopeReact",
+		"body": [
+			"\"scope\": \"javascriptreact,typescriptreact,json\","
+		],
+		"description": "Tailwind CSS navigation item styling"
+	},
+	"scopeTypeScript": {
+		"prefix": "scopeTypeScript",
+		"body": [
+			"\"scope\": \"javascript,typescript\","
+		],
+		"description": "Tailwind CSS navigation item styling"
+	},
+	"scopeReact": {
+		"prefix": "scopeWebsite",
+		"body": [
+			"\"scope\": \"html,css,javascript,typescript,javascriptreact,typescriptreact,json\","
+		],
+		"description": "Tailwind CSS navigation item styling"
 	},
 	"Prettier Config": {
 		"prefix": "prettierConfig",

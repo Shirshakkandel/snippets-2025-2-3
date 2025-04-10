@@ -21,5 +21,31 @@
 		"body": [
 			"// pnpm dlx shadcn@latest init ${1:-d //for default} "
 		]
+	},
+	"Shadcn Form Import": {
+		"prefix": "shadcnFormImport",
+		"body": [
+			"//https://ui.shadcn.com/docs/components/form",
+			"//shadcnFormImport",
+			"import { z } from 'zod';",
+			"import { zodResolver } from '@hookform/resolvers/zod';",
+			"import { useForm } from 'react-hook-form';",
+			"import { Button } from '@/components/ui/button';",
+			"import {",
+			"  Form,",
+			"  FormControl,",
+			"  FormDescription,",
+			"  FormField,",
+			"  FormItem,",
+			"  FormLabel,",
+			"  FormMessage,",
+			"} from '@/components/ui/form';",
+			"import { Input } from '@/components/ui/input';",
+			"",
+			"const formSchema = z.object({",
+			"  username: z.string().min(2).max(50),",
+			"});"
+		],
+		"description": "Import Shadcn form components and set up a basic form schema"
 	}
 }

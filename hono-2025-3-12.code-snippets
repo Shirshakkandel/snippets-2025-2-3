@@ -272,5 +272,53 @@
 			"export default errorHandler;"
 		],
 		"description": "Hono Error Middleware with comments"
+	},
+	"Hono Route": {
+		"prefix": "HonoRoute",
+		"body": [
+			"import { Hono } from 'hono';",
+			"// Reference Snippet => betterIAuthSession",
+			"${1:import type { AuthSession \\} from '../lib/better-auth/auth-types.js';}",
+			"",
+			"const ${2:routeName}Route = new Hono${3:<AuthSession>}();",
+			"",
+			"${2:routeName}Route.get('/${4:}', async c => {",
+			"  //SECTION::return Part",
+			"  const ${2:routeName} = {};",
+			"  return c.json(",
+			"    {",
+			"      status: true,",
+			"      message: '${2:routeName}Route',",
+			"      result: ${2:routeName},",
+			"    },",
+			"    200",
+			"  );",
+			"});",
+			"",
+			"export default ${2:routeName}Route;"
+		],
+		"description": "Insert a customizable Hono route"
+	},
+	"Hono Route Post": {
+		"prefix": "HonoRoutePost",
+		"body": [
+			"${1:routeName}Route.post('/${2:}', async c => {",
+			"const user = c.get('user');",
+			"const { body } = await c.req.json();",
+			"",
+			"  //SECTION::return Part",
+			"  const ${1:routeName} = {};",
+			"  return c.json(",
+			"    {",
+			"      status: true,",
+			"      message: '${1:routeName}Route',",
+			"      result: ${1:routeName},",
+			"    },",
+			"    200",
+			"  );",
+			"});",
+			"",
+		],
+		"description": "Insert a customizable Hono route"
 	}
 }
