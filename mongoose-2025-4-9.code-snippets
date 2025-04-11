@@ -19,8 +19,23 @@
 	"Mongoose Find One": {
 		"prefix": "mongooseFindOne",
 		"body": [
-			"const ${1:groupInfo} = await ${2:Group}.findOne({ _id: ${3:body.id} });"
+			"const ${1:groupInfo} = await ${2:Group}.findOne({${3|_id,owner|}: ${4|body.id,user.id|} });"
 		],
 		"description": "Mongoose findOne with customizable variable, model, and ID"
 	},
+	"Mongo FindOneAndUpdate": {
+		"prefix": "mongoFindOneUpdate",
+		"body": [
+			"let ${1:integration} = await ${2:Integration}.findOneAndUpdate(",
+			"  { owner: user.id },",
+			"  {",
+			"    paypal: {",
+			"      email: email,",
+			"    },",
+			"  },",
+			"  { new: true },",
+			");"
+		],
+		"description": "Snippet for MongoDB findOneAndUpdate operation"
+	}
 }

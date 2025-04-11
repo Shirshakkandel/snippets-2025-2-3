@@ -303,8 +303,8 @@
 		"prefix": "HonoRoutePost",
 		"body": [
 			"${1:routeName}Route.post('/${2:}', async c => {",
-			"const user = c.get('user');",
-			"const { body } = await c.req.json();",
+			"const user = c.get('user')!;",
+			"const {${3|body,email|} } = await c.req.json();",
 			"",
 			"  //SECTION::return Part",
 			"  const ${1:routeName} = {};",
