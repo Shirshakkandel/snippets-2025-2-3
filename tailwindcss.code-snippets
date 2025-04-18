@@ -39,6 +39,14 @@
 		],
 		"description": "Snippet for a predefined className with Tailwind CSS classes"
 	},
+	"ClassName Snippet with cn": {
+		"scope": "html,javascript,typescript,javascriptreact,typescriptreact",
+		"prefix": "classNameCn",
+		"body": [
+			"className={cn(${1})}"
+		],
+		"description": "Snippet for a predefined className with Tailwind CSS classes"
+	},
 	"Tailwind Text Gradient": {
 		"prefix": "twTextGradient",
 		"body": [

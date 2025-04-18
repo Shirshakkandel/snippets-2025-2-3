@@ -5,19 +5,14 @@
 	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
 	// Placeholders with the same ids are connected.
-	"Reduce Function": {
-		"prefix": "jsReduce",
-		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
-		"body": [
-			"const ${1:earnings} = ${2:group}s.reduce((sum, ${2:group}) => sum + ${group}.${3:revenue}, 0);"
-		],
-		"description": "Insert a reduce function to calculate earnings with customizable placeholders"
-	},
-	"JavaScript Ternary Operator": {
-		"prefix": "ternary",
-		"body": [
-			"${1:condition} ? ${2:expressionIfTrue} : ${3:expressionIfFalse};"
-		],
-		"description": "Ternary operator for conditional expressions"
-	}
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
 }

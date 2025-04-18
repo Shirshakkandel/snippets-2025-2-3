@@ -1,0 +1,107 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	"langchainEnvironment": {
+		"prefix": "langchainEnvironment",
+		"body": [
+			"# LangChain Core",
+			"langchain",
+			"langchain-core",
+			"",
+			"# OpenAI Integration",
+			"langchain-openai",
+			"openai",
+			"",
+			"# Anthropic Integration",
+			"langchain-anthropic",
+			"",
+			"# Google Gemini (PaLM) Integration",
+			"langchain-google-genai",
+			"google-generativeai",
+			"",
+			"# Hugging Face Integration",
+			"langchain-huggingface",
+			"transformers",
+			"huggingface-hub",
+			"",
+			"# Environment Variable Management",
+			"python-dotenv",
+			"",
+			"# Machine Learning Utilities",
+			"numpy",
+			"scikit-learn"
+		],
+		"description": "Snippet for setting up a LangChain environment in requirements.txt"
+	},
+	"LangChain Setup with OpenAI and Google Gemini": {
+		"prefix": "langchain",
+		"scope": "python",
+		"body": [
+			"from ${1|langchain_google_genai,langchain_openai,langchain_anthropic|} import ${2|ChatGoogleGenerativeAI,OpenAI,ChatOpenAI,ChatAnthropic|}",
+			"from dotenv import load_dotenv",
+			"load_dotenv()",
+			"",
+			"${4|llm,model|} = ${2:ChatGoogleGenerativeAI}(model='${3|gemini-1.5-pro,gpt-3.5-turbo-instruct,claude-3-5-sonnet-20241022|}')"
+		],
+		"description": "LangChain LLM setup using Google Gemini or OpenAI"
+	},
+	"langchainPromptGenerator": {
+		"prefix": "langPromptGenerator",
+		"scope": "python",
+		"body": [
+			"# python ${TM_FILENAME}",
+			"from langchain_core.prompts import PromptTemplate",
+			"",
+			"# template",
+			"template = PromptTemplate(",
+			"    template=\"\"\"",
+			"       ${1:template} ",
+			"    \"\"\",",
+			"    input_variables=['${5:paper_input}', '${6:style_input}', '${7:length_input}'],",
+			"    validate_template=True",
+			")",
+			"",
+			"template.save('${8:template.json}')"
+		],
+		"description": "Snippet for Langchain prompt generator with dynamic placeholders"
+	},
+	"langchainPromptsImport": {
+		"prefix": "langPromptsImport",
+		"scope": "python",
+		"body": [
+			"from langchain_core.prompts import ${1|PromptTemplate,load_prompt,ChatPromptTemplate|}"
+		],
+		"description": "Snippet for importing from langchain_core.prompts with dynamic selection"
+	},
+	"Import LangChain Messages": {
+		"prefix": "langMessagesImport",
+		"scope": "python",
+		"body": [
+			"from langchain_core.messages import SystemMessage, HumanMessage, AIMessage"
+		],
+		"description": "Import SystemMessage, HumanMessage, and AIMessage from langchain_core.messages"
+	},
+	"SystemMessage Snippet": {
+		"prefix": "langMessage",
+		"scope": "python",
+		"body": [
+			"${1|SystemMessage,HumanMessage,AIMessage|}(content='$2')"
+		],
+		"description": "Create a SystemMessage with dynamic content"
+	},
+	"Lang Prompt Template": {
+		"prefix": "langPromptTemplate",
+		"body": [
+			"from langchain_core.prompts import PromptTemplate",
+			"${1:template} = PromptTemplate(",
+			"    template='${2:command} /n {${3:text}}',",
+			"    input_variables=['${3:text}']",
+			")"
+		],
+		"description": "Create a dynamic PromptTemplate with customizable parameters"
+	}
+}

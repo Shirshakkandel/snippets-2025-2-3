@@ -8,7 +8,7 @@
 	// Example:
 	"Clone Specific Brach": {
 		"scope": "javascript,typescript,javascriptreact,typescriptreact,json,python,solidity",
-		"prefix": "cloneBranch",
+		"prefix": "gitCloneBranch",
 		"body": [
 			"// git clone -b ${1:brachName} ${2:remoteUrl}  ${3:localName}"
 		]
@@ -19,5 +19,21 @@
 		"body": [
 			"// git add . && git commit -m '${1:commit message}' && git push "
 		]
+	},
+	"Git Branch Command": {
+		"prefix": "gitBranch",
+		"body": [
+			"// git checkout -b ${1:branch-name}",
+			"// git add . && git commit -m '${2:commit-message}' && git push ${3:-u origin} ${1:branch-name} ",
+		],
+		"description": "Create a new Git branch, add changes, commit, and push"
+	},
+	"Git Checkout and Pull Master": {
+		"prefix": "gitCheckoutPullMaster",
+		"body": [
+			"git checkout ${1:branch-name}",
+			"git pull origin ${1:branch-name}"
+		],
+		"description": "Checkout to a branch and pull the latest changes from origin"
 	}
 }

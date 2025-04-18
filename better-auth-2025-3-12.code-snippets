@@ -6,14 +6,40 @@
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
 	// Placeholders with the same ids are connected.
 	// Example:
+	"BetterNextInstall": {
+		"prefix": "BetterNextInstall",
+		"body": [
+			"//https://www.better-auth.com/docs/installation",
+			"//https://github1s.com/devmdfaiz/cloud-clove/blob/main/src/lib/better-auth/auth.ts",
+			"//${1|bun,pnpm,yarn,npm|} add better-auth",
+			"//.env => BETTER_AUTH_SECRET=  BETTER_AUTH_URL=http://localhost:3000",
+			"// create src/lib/better-auth/auth.ts,auth-client.ts,auth-type.ts and db.ts"
+		],
+		"description": "Insert Better Auth installation comments"
+	},
 	"Better Auth Environment Variables": {
 		"prefix": "betterAuthEnv",
-		"scope": "json",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
 		"body": [
 			"BETTER_AUTH_SECRET=${1:mV87J1DE4qTKpVkS4KISss5YzDDXu2O}",
 			"BETTER_AUTH_URL=${2:http://localhost:3000} #Base URL of your app"
 		],
 		"description": "Snippet for Better Auth environment variables"
+	},
+	"BetterAuthFileNext": {
+		"prefix": "betterAuthFileNext",
+		"body": [
+			"// Prefix: betterAuthFileNext",
+			"// File Path: src\\lib\\better-auth\\auth.ts",
+			"// Documentation: https://www.better-auth.com/docs/integrations/next#server-action-cookies",
+			"import { betterAuth } from 'better-auth';",
+			"import { nextCookies } from 'better-auth/next-js';",
+			"",
+			"export const auth = betterAuth({",
+			"  plugins: [nextCookies()], // make sure this is the last plugin in the array",
+			"});"
+		],
+		"description": "Insert Better Auth setup for Next.js with prefix in comments"
 	},
 	"BetterGithub": {
 		"prefix": "BetterGithub",

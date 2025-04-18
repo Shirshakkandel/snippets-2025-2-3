@@ -1,0 +1,39 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"TypeScript Props Type with Placeholder": {
+		"prefix": "propsTypescript",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"type ${1:Props} = {",
+			"\tname: string;",
+			"\tage?: number;",
+			"\tonClick: () => void;",
+			"};"
+		],
+		"description": "TypeScript Props Type Definition with Placeholder"
+	},
+	"Interface Extend with Placeholders": {
+		"prefix": "interfaceExtend",
+		"body": [
+			"interface ${1:Props} extends ${2:Book} {",
+			"\tuserId: string;",
+			"}"
+		],
+		"description": "Interface extension with placeholders for Props and Book"
+	},
+	"Type Extend with Placeholders": {
+		"prefix": "typeExtendTypescript",
+		"body": [
+			"type ${1:Props1} = ${2:Book} & {",
+			"\tuserId: string;",
+			"};"
+		],
+		"description": "Type extension with placeholders for Props1 and Book"
+	}
+}

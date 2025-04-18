@@ -5,19 +5,17 @@
 	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
 	// Placeholders with the same ids are connected.
-	"Reduce Function": {
-		"prefix": "jsReduce",
-		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+	// Example:
+	"Generate VS Code Snippet Prompt": {
+		"prefix": "snippetPrompt",
 		"body": [
-			"const ${1:earnings} = ${2:group}s.reduce((sum, ${2:group}) => sum + ${group}.${3:revenue}, 0);"
+			"Generate a VS Code snippet with the following:",
+			"- Prefix: ${1:yourPrefix}",
+			"- Scope: ${2:global or language-specific}",
+			"- Dynamic body content no content just structure so i can use anywhere",
+			"- Include placeholders and tabstops if needed",
+			"Only return the raw JSON snippet, nothing else."
 		],
-		"description": "Insert a reduce function to calculate earnings with customizable placeholders"
-	},
-	"JavaScript Ternary Operator": {
-		"prefix": "ternary",
-		"body": [
-			"${1:condition} ? ${2:expressionIfTrue} : ${3:expressionIfFalse};"
-		],
-		"description": "Ternary operator for conditional expressions"
+		"description": "Prompt to generate a dynamic VS Code snippet"
 	}
 }

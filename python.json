@@ -12,6 +12,70 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"Python Internal Working": {
+		"prefix": "pyInternalWorking",
+		"body": [
+			"# Prefix => pyInternalWorking",
+			"# https://www.youtube.com/watch?v=3HTKc-ZgZbg&t=711s&ab_channel=ChaiaurCode",
+			"# When we install Python, we also install the Python Virtual Machine (PVM).",
+			"# The PVM is part of the CPython implementation (default Python interpreter).",
+			"",
+			"# When we run a Python script, the code is first compiled into **bytecode**.",
+			"# Bytecode is a low-level, platform-independent representation of the code.",
+			"# This bytecode is then executed by the Python Virtual Machine (PVM).",
+			"",
+			"# The compiled bytecode is stored in the __pycache__ directory.",
+			"# For example: __pycache__/hello_chai.cpython-313.pyc",
+			"#   - \"cpython\" refers to the Python implementation.",
+			"#   - \"313\" is the version info (e.g., Python 3.13).",
+			"# Python uses a diffing algorithm to recompile only when the source file changes.",
+			"",
+			"# There are different implementations of Python:",
+			"#   - CPython => Standard, written in C.",
+			"#   - Jython => Runs on the Java Virtual Machine.",
+			"#   - IronPython => Integrates with the .NET ecosystem.",
+			"#   - PyPy => Uses Just-In-Time (JIT) compilation for faster performance.",
+			"#   - Stackless Python => Supports microthreads for concurrency."
+		],
+		"description": "Snippet explaining Python's internal working and different implementations."
+	},
+	"Python Mutable and Immutable Example": {
+		"prefix": "pyMutableImmutable",
+		"body": [
+			"# Prefix=> pyMutableImmutable",
+			"username = \"shirshak\"",
+			"print(username)",
+			"",
+			"username = \"Shailesh\"",
+			"print(username)",
+			"",
+			"# Strings in Python are **immutable**.",
+			"# When you write username = \"Shailesh\", you're not changing the value at the original memory location.",
+			"# Instead, you're creating a **new string object** (\"Shailesh\") and updating `username` to point to this new object.",
+			"# The original \"shirshak\" string is unchanged (though it may get garbage collected if unreferenced).",
+			"",
+			"x = 10",
+			"y = x",
+			"x = 15",
+			"print(y)",
+			"# Here, integers are also immutable.",
+			"",
+			"# x = 10 creates a new int object.",
+			"",
+			"# y = x means y now also refers to 10.",
+			"",
+			"# When you do x = 15, you're re-binding x to a new int object 15.",
+			"# It doesn't affect y, which still points to 10."
+		],
+		"description": "Example demonstrating immutability in Python with strings and integers."
+	},
+	"Python Import Modules": {
+		"prefix": "pyImport",
+		"body": [
+			"import ${1|math,random,os,sys|}",
+		],
+		"description": "Snippet for importing commonly used Python modules with a placeholder for the first import."
+	},
 	"1. Create virtual environment": {
 		"prefix": "virtualEnv",
 		"body": [
@@ -40,6 +104,20 @@
 		],
 		"description": "LangChain & Vector Databases in Production Course by deeplake"
 	},
+	"fStringConcatenation": {
+		"prefix": "fStringConcatenation",
+		"body": [
+			"f\"{${1:first_name}}\""
+		],
+		"description": "F-string concatenation with placeholders for first and last name"
+	},
+	"stringSlicing": {
+		"prefix": "stringSlicing",
+		"body": [
+			"${1:text}[${2:inclusiveIndex}:${3:exclusiveIndex}]"
+		],
+		"description": "String slicing with placeholders for inclusive and exclusive indices"
+	},
 	"5.Python Load Environment Variables": {
 		"prefix": "loadEnv",
 		"body": [
@@ -49,5 +127,197 @@
 			"os.environ[\"${1:OPENAI_API_KEY}\"] = os.getenv(\"${1:OPENAI_API_KEY}\")"
 		],
 		"description": "Load environment variables using dotenv"
+	},
+	"intFloatInput": {
+		"prefix": "intFloatInput",
+		"body": [
+			"${1|int,float|}(input(\"${2:How old are you?} \"))"
+		],
+		"description": "Input statement with placeholders for int/float and prompt message"
+	},
+	//SECTION::Condition
+	"ifElse": {
+		"prefix": "ifElse",
+		"body": [
+			"if ${1:password} == ${2:\"condition\"}:",
+			"    ${3:print(\"Access granted\")}",
+			"else:",
+			"    ${4:print(\"No access!\")}"
+		],
+		"description": "If-else statement with placeholders for password, condition, and actions"
+	},
+	"ternaryIfElse": {
+		"prefix": "ternaryIfElse",
+		"body": [
+			"${1:status} = ${2:'adult'} if ${3:age >= 18} else ${4:'minor'}",
+		],
+		"description": "If-else statement with placeholders for password, condition, and actions"
+	},
+	"If Elif Else": {
+		"prefix": "ifelifelse",
+		"body": [
+			"if ${1:condition1}:",
+			"    ${2:# code block for condition1}",
+			"elif ${3:condition2}:",
+			"    ${4:# code block for condition2}",
+			"else:",
+			"    ${5:# code block if none of the conditions are met}"
+		],
+		"description": "If Elif Else statement"
+	},
+	"Try Except": {
+		"prefix": "tryexcept",
+		"body": [
+			"try:",
+			"    ${1:# code that may raise an exception}",
+			"except ${2:Exception} as ${3:e}:",
+			"    ${4:# code to handle the exception}",
+			"else:",
+			"    ${5:# code to execute if no exception was raised}",
+			"finally:",
+			"    ${6:# code to execute regardless of whether an exception was raised}"
+		],
+		"description": "Try Except block for error handling"
+	},
+	"Print Statement": {
+		"prefix": "print",
+		"body": [
+			"print(${1:\"message\"})"
+		],
+		"description": "Python print statement"
+	},
+	"Loop with Break": {
+		"prefix": "loopbreak",
+		"body": [
+			"for ${1:item} in ${2:iterable}:",
+			"    if ${3:condition}:",
+			"        break",
+			"    ${4:# code to execute if condition is not met}"
+		],
+		"description": "Python loop with a break condition"
+	},
+	"While Loop with Break": {
+		"prefix": "whilebreak",
+		"body": [
+			"${1:anythings before condition}",
+			"while ${2:condition}:",
+			"    ${3:anythings after condition}",
+			"    if ${4:break_condition}:",
+			"        break",
+			"    ${5:# code to execute if break_condition is not met}"
+		],
+		"description": "Python while loop with a break condition"
+	},
+	"Function": {
+		"prefix": "func",
+		"body": [
+			"def ${1:function_name}(${2:args}):",
+			"    ${0:pass}"
+		],
+		"description": "Create a Python function"
+	},
+	"Function with docString": {
+		"prefix": "funcDocString",
+		"body": [
+			"def ${1:function_name}(${2:args}):",
+			"    \"\"\"",
+			"    ${3:Docstring for $1}",
+			"    \"\"\"",
+			"    ${0:pass}"
+		],
+		"description": "Create a Python function"
+	},
+	"Lambda Function": {
+		"prefix": "lambda",
+		"body": [
+			"lambda ${1:args}: ${2:expression}"
+		],
+		"description": "Create a lambda function"
+	},
+	"Python Class": {
+		"prefix": "class",
+		"body": [
+			"class ${1:ClassName}:",
+			"    def __init__(self, ${2:args}):",
+			"        ${3:pass}",
+			"",
+			"    def ${4:method_name}(self, ${5:args}):",
+			"        ${6:pass}"
+		],
+		"description": "Create a new Python class with an initializer and a method"
+	},
+	"Python Inheritance Class": {
+		"prefix": "classInheritance",
+		"body": [
+			"class ${1:SubClassName}(${2:BaseClassName}):",
+			"    def __init__(self, ${3:args}):",
+			"        super().__init__(${4:args})",
+			"        ${5:pass}",
+			"",
+			"    def ${6:method_name}(self, ${7:args}):",
+			"        ${8:pass}"
+		],
+		"description": "Create a new Python subclass with an initializer and a method"
+	},
+	"Python From Import": {
+		"prefix": "fromImport",
+		"body": [
+			"from ${1:module} import ${2:object}"
+		],
+		"description": "Create a Python from import statement"
+	},
+	"Python Class Method": {
+		"prefix": "method",
+		"body": [
+			"def ${1:method_name}(self, ${2:args}):",
+			"    ${3:pass}"
+		],
+		"description": "Create a Python class method"
+	},
+	"Pip Commands": {
+		"prefix": "pip",
+		"body": [
+			"# pip ${1|install,uninstall,list|} ${2:-U} ${3:packageName==2.32.3}",
+		],
+		"description": "Common pip commands for package management"
+	},
+	"Activate Virtual Environment": {
+		"prefix": "activateVirtualEnv",
+		"body": [
+			"# source ${1:envName}/Scripts/activate",
+			"# deactivate"
+		],
+		"description": "Activate a virtual environment and deactivate"
+	},
+	"Python For Loop": {
+		"prefix": "forLoop",
+		"body": [
+			"for ${1:item} in ${2:iterable}:",
+			"    ${0:# code}"
+		],
+		"description": "Create a Python for loop"
+	},
+	"Python File Handling": {
+		"prefix": "file",
+		"body": [
+			"with open('${1:filename}', '${2|w,r,a,x|}') as ${3:f}:",
+			"    ${0:# Perform file operations here}"
+		],
+		"description": "Basic file handling in Python"
+	},
+	"Python Decorator": {
+		"prefix": "decorator",
+		"body": [
+			"def ${1:decorator_name}(func):",
+			"    def wrapper(*args, **kwargs):",
+			"        # Code to execute before calling the function",
+			"        ${2:actual code before calling function}",
+			"        result = func(*args, **kwargs)",
+			"        # Code to execute after calling the function",
+			"        ${3:actual code after calling function}",
+			"        return result",
+			"    return wrapper"
+		],
+		"description": "Create a Python decorator function"
 	}
 }

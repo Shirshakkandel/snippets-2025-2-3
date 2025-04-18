@@ -1,0 +1,42 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"streamlitSnippet": {
+		"prefix": "streamlit",
+		"scope": "python",
+		"body": [
+			"# pip install streamlit",
+			"# streamlit run ${TM_FILENAME}",
+			"import streamlit as st"
+		],
+		"description": "Snippet for importing Streamlit with installation and run comments"
+	},
+	"streamlitTextInput": {
+		"prefix": "stInput",
+		"body": [
+			"${1:user_input} = st.text_input(\"${2:Enter your prompt}\")"
+		],
+		"description": "Snippet for Streamlit text input with placeholders"
+	},
+	"streamlitSelectBox": {
+		"prefix": "stSelector",
+		"body": [
+			"${1:variable_name} = st.selectbox(\"${2:Select an option}\", [\"${3:Option 1}\", \"${4:Option 2}\", \"${5:Option 3}\", \"${6:Option 4}\"])"
+		],
+		"description": "Snippet for Streamlit select box with dynamic placeholders"
+	},
+	"streamlitButton": {
+		"prefix": "stButton",
+		"body": [
+			"if st.button(\"${1:Button Label}\"):",
+			"    ${2:result} = ${3:model}.invoke(${4:user_input})",
+			"    st.text(${5:result}.content)"
+		],
+		"description": "Snippet for Streamlit button with dynamic placeholders"
+	}
+}
