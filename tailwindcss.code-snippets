@@ -15,6 +15,45 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"tailwindV4Install": {
+		"prefix": "tailwindV4Install",
+		"body": [
+			"//https://tailwindcss.com/docs/installation/framework-guides/nextjs",
+			"//${1|pnpm,bun|} install ${2|-D,-d|}  tailwindcss @tailwindcss/postcss postcss",
+			"",
+			"//postcss.config.mjs",
+			"// const config = {",
+			"//   plugins: {",
+			"//     \"@tailwindcss/postcss\": {},",
+			"//   },",
+			"// };",
+			"// export default config;",
+			"",
+			"//global.css",
+			"// @import \"tailwindcss\";"
+		],
+		"description": "Setup Tailwind CSS for a Next.js project with placeholder commands"
+	},
+	"Tailwind CSS with Vite": {
+		"prefix": "tailwindV4Vite",
+		"body": [
+			"//https://tailwindcss.com/docs/installation/using-vite",
+			"//${1|pnpm,bun|} install ${2|-D,-d|}  tailwindcss @tailwindcss/postcss postcss",
+			"",
+			"//vite.config.ts or wxt.config.ts",
+			"plugins: [",
+			"  tailwindcss(),",
+			"],",
+			"// OR",
+			"vite: () => ({",
+			"  plugins: [tailwindcss()],",
+			"}),",
+			"",
+			"//global.css",
+			"@import \"tailwindcss\";"
+		],
+		"description": "Setup Tailwind CSS with Vite"
+	},
 	"1. Container Custom": {
 		"scope": "html,javascript,typescript,javascriptreact,typescriptreact",
 		"prefix": "tw-customContainer",
@@ -51,6 +90,13 @@
 		"prefix": "twTextGradient",
 		"body": [
 			"bg-gradient-to-r from-${1|purple-400,emerald-300|} to-${2|pink-400,sky-300|} bg-clip-text text-transparent"
+		],
+		"description": "Snippet for Tailwind CSS gradient text with customizable from and to colors"
+	},
+	"Tailwind import": {
+		"prefix": "tailwindImport",
+		"body": [
+			"@import 'tailwindcss';"
 		],
 		"description": "Snippet for Tailwind CSS gradient text with customizable from and to colors"
 	},
@@ -224,5 +270,72 @@
 			"},"
 		],
 		"description": "Tailwind CSS fontFamily configuration"
+	},
+	"tailwindV4theme": {
+		"prefix": "tailwindV4theme",
+		"body": [
+			"@theme {",
+			"\t/* Font Sizes */",
+			"\t--text-xs: ${1:12px};",
+			"\t--text-sm: ${2:14px};",
+			"\t--text-base: ${3:16px};",
+			"\t--text-lg: ${4:18px};",
+			"\t--text-xl: ${5:20px};",
+			"\t--text-2xl: ${6:24px};",
+			"\t--text-3xl: ${7:30px};",
+			"\t--text-4xl: ${8:36px};",
+			"\t--text-5xl: ${9:48px};",
+			"\t--text-6xl: ${10:60px};",
+			"\t--text-7xl: ${11:72px};",
+			"",
+			"\t/* Spacing */",
+			"\t--space-px: ${12:1px};",
+			"\t--space-0: ${13:0};",
+			"\t--space-0_5: ${14:2px};",
+			"\t--space-1: ${15:4px};",
+			"\t--space-1_5: ${16:6px};",
+			"\t--space-2: ${17:8px};",
+			"\t--space-2_5: ${18:10px};",
+			"\t--space-3: ${19:12px};",
+			"\t--space-3_5: ${20:14px};",
+			"\t--space-4: ${21:16px};",
+			"\t--space-5: ${22:20px};",
+			"\t--space-6: ${23:24px};",
+			"\t--space-7: ${24:28px};",
+			"\t--space-8: ${25:32px};",
+			"\t--space-9: ${26:36px};",
+			"\t--space-10: ${27:40px};",
+			"\t--space-11: ${28:44px};",
+			"\t--space-12: ${29:48px};",
+			"\t--space-14: ${30:56px};",
+			"\t--space-16: ${31:64px};",
+			"\t--space-20: ${32:80px};",
+			"\t--space-24: ${33:96px};",
+			"\t--space-28: ${34:112px};",
+			"\t--space-32: ${35:128px};",
+			"\t--space-36: ${36:144px};",
+			"\t--space-40: ${37:160px};",
+			"\t--space-44: ${38:176px};",
+			"\t--space-48: ${39:192px};",
+			"\t--space-52: ${40:208px};",
+			"\t--space-56: ${41:224px};",
+			"\t--space-60: ${42:240px};",
+			"\t--space-64: ${43:256px};",
+			"\t--space-72: ${44:288px};",
+			"\t--space-80: ${45:320px};",
+			"\t--space-96: ${46:384px};",
+			"",
+			"\t/* Line Heights */",
+			"\t--leading-3: ${47:12px};",
+			"\t--leading-4: ${48:16px};",
+			"\t--leading-5: ${49:20px};",
+			"\t--leading-6: ${50:24px};",
+			"\t--leading-7: ${51:28px};",
+			"\t--leading-8: ${52:32px};",
+			"\t--leading-9: ${53:36px};",
+			"\t--leading-10: ${54:40px};",
+			"}"
+		],
+		"description": "Tailwind CSS v4 theme configuration snippet."
 	}
 }

@@ -19,5 +19,50 @@
 			"${1:condition} ? ${2:expressionIfTrue} : ${3:expressionIfFalse};"
 		],
 		"description": "Ternary operator for conditional expressions"
+	},
+	"Extract URL": {
+		"prefix": "URL",
+		"body": [
+			"//prefix => URL",
+			"const url = new URL(${1|window.location.href,tab.url|});",
+			"//const paramValue = url.searchParams.get('${2:v}');",
+			"// const variable= url.${3|hostname,pathname,search,hash|}"
+		],
+		"description": "Extract a query parameter from a URL using the URL object."
+	},
+	"Extract URL Query Parameter": {
+		"prefix": "URLSearchParams",
+		"body": [
+			"//prefix => URLSearchParams",
+			"const ${1:queryParams} = new URLSearchParams(${2:query});",
+			"//const paramValue = ${1:queryParams}.get('${3:v}');",
+		],
+		"description": "Extract a query parameter from a URL using the URL object."
+	},
+	"Immediately Invoked Function Expression": {
+		"prefix": "iife",
+		"body": [
+			"(() => {",
+			"  ${1: //Write code here}",
+			"})();"
+		],
+		"description": "Insert an Immediately Invoked Function Expression (IIFE) structure."
+	},
+	"Async Function Structure": {
+		"prefix": "asyncFunction",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"const ${1:functionName} = ${2:async} () => {",
+			"  ${3://write ${2:async} function code here}",
+			"};"
+		],
+		"description": "Insert an async function structure."
+	},
+	"getElementsByClassName": {
+		"prefix": "getElementsByClassName",
+		"body": [
+			"const ${3:variable} = document.getElementsByClassName('${1:class-name}')[${2:index}];"
+		],
+		"description": "Snippet for document.getElementsByClassName with placeholders"
 	}
 }

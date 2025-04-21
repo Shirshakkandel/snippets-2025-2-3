@@ -1,0 +1,139 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	"WXT Web Extension Config": {
+		"prefix": "wxtConfig",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"//web-ext.config.ts prefix=> wxtConfig",
+			"import { defineWebExtConfig } from 'wxt';",
+			"",
+			"export default defineWebExtConfig({",
+			"  disabled: true, // load .output/chrome-mv3-dev",
+			"});"
+		],
+		"description": "WXT Web Extension Configuration"
+	},
+	"WXT install": {
+		"prefix": "wxtInstall",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"// ${1|pnpx,npx,bun|} ${2:x}  wxt@latest init",
+		],
+		"description": "install wxt"
+	},
+	"wxtManifest": {
+		"prefix": "wxtManifest",
+		"body": [
+			"manifest: {",
+			"\tname: '${1:ZenYoutube}',",
+			"\tdescription: '${2:ZenYoutube is a browser extension that helps you to watch youtube videos in a zen mode.}',",
+			"\tversion: '${3:0.1.0}',",
+			"\tpermissions: [${4:'tabs', 'storage'}],",
+			"\ticons: {",
+			"\t\t16: '${5:icons/16.png}',",
+			"\t\t32: '${6:icons/32.png}',",
+			"\t\t48: '${7:icons/48.png}',",
+			"\t\t128: '${8:icons/128.png}',",
+			"\t},",
+			"},"
+		],
+		"description": "Snippet for a basic manifest structure for use anywhere."
+	},
+	"wxtMatches": {
+		"prefix": "wxtMatches",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"matches: [${1|'*://*.youtube.com/*','<all_urls>'|}]"
+		],
+		"description": "Snippet for defining matches in WXT"
+	},
+	"wxCreateShadowRootUI": {
+		"prefix": "wxCreateShadowRootUI",
+		"body": [
+			"//prefix=> wxCreateShadowRootUI",
+			"uiRef = await createShadowRootUi(ctx, {",
+			"\tname: '${1:zen-ui}',",
+			"\tposition: '${2:inline}',",
+			"\tanchor: '${3:body}',",
+			"\tonMount: container => {",
+			"\t\t// Container is a body, and React warns when creating a root on the body, so create a wrapper div",
+			"\t\tconst app = document.createElement('div');",
+			"\t\tcontainer.append(app);",
+			"",
+			"\t\t// Create a root on the UI container and render a component",
+			"\t\tconst root = ReactDOM.createRoot(app);",
+			"\t\troot.render(<${4:ZenUI} />);",
+			"\t\treturn root;",
+			"\t},",
+			"\tonRemove: root => {",
+			"\t\t// Unmount the root when the UI is removed",
+			"\t\troot?.unmount();",
+			"\t}",
+			"});",
+			"",
+			"// Call mount to add the UI to the DOM",
+			"uiRef?.mount();"
+		],
+		"description": "Snippet for creating and managing a Shadow DOM UI component."
+	},
+	"Check URL Injection": {
+		"prefix": "checkUrlInjection",
+		"body": [
+			"const whereToShowCustomUI = [new MatchPattern('*://*.youtube.com/')];",
+			"",
+			"function checkIfWeCanInjectUI(newUrl: string) {",
+			"  return whereToShowCustomUI.some(pattern => pattern.includes(newUrl));",
+			"}"
+		],
+		"description": "Snippet to check if a URL matches the pattern for UI injection"
+	},
+	"WXT Location Change Listener": {
+		"prefix": "wxtLocationChangeListener",
+		"body": [
+			"//Reference => https://www.notion.so/shirshakkandel/Code-Snippet-2024-11-8-13cfdab0071e80098afcd9e8e8bee8e8?pvs=4#1dbfdab0071e806cbecfcc5ad42b7ede",
+			"//prefix =>wxtLocationChangeListener ",
+			"ctx.addEventListener(window, 'wxt:locationchange', async ({ newUrl }) => {",
+			"  if (!uiRef && checkIfWeCanInjectUI(newUrl.toString())) {",
+			"    await mountShadowRootUi(ctx);",
+			"  }",
+			"});"
+		],
+		"description": "Snippet for adding a WXT location change event listener"
+	},
+	"WXT Hooks Configuration": {
+		"prefix": "wxtHooks",
+		"body": [
+			"hooks: {",
+			"  'build:manifestGenerated': (wxt, manifest) => {",
+			"    manifest.content_scripts ??= [];",
+			"    manifest.content_scripts.push({",
+			"      css: ['assets/reset.css'],",
+			"      matches: ['*://*.youtube.com/*'],",
+			"    });",
+			"  },",
+			"}"
+		],
+		"description": "Snippet for WXT hooks configuration in wxt.config.ts"
+	},
+	"Storage Get and Document Set Property": {
+		"prefix": "wxtStorageGetAndDocSetProperty",
+		"body": [
+			"const zenModeStatus = await storage.getItem('local:zen-mode-status', {",
+			"  fallback: 'not-activated',",
+			"});",
+			"",
+			"if (zenModeStatus === 'activated') {",
+			"  document.documentElement.style.setProperty(",
+			"    '--zen-mode-status',",
+			"    'activated'",
+			"  );",
+			"}"
+		],
+		"description": "Snippet for getting storage item and setting document style property"
+	}
+}

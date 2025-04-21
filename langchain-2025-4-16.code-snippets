@@ -103,5 +103,13 @@
 			")"
 		],
 		"description": "Create a dynamic PromptTemplate with customizable parameters"
+	},
+	"LangChain StrOutputParser": {
+		"prefix": "langStrOutputParser",
+		"body": [
+			"from langchain_core.output_parsers import StrOutputParser",
+			"parser = StrOutputParser()"
+		],
+		"description": "Import and initialize LangChain StrOutputParser"
 	}
 }
