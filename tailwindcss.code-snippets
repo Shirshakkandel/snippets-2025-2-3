@@ -38,7 +38,7 @@
 		"prefix": "tailwindV4Vite",
 		"body": [
 			"//https://tailwindcss.com/docs/installation/using-vite",
-			"//${1|pnpm,bun|} install ${2|-D,-d|}  tailwindcss @tailwindcss/postcss postcss",
+			"//${1|pnpm,bun|} install ${2|-D,-d|}  tailwindcss @tailwindcss/vite",
 			"",
 			"//vite.config.ts or wxt.config.ts",
 			"plugins: [",

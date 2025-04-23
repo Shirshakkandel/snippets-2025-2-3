@@ -22,7 +22,7 @@
 		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
 		"body": [
 			"// https://ui.shadcn.com/docs/installation/next",
-			"//bun x shadcn@latest init -d && bun x shadcn@latest add"
+			"//bun x shadcn@latest init  && bun x shadcn@latest add"
 		],
 		"description": "Install Shadcn using Bun"
 	},

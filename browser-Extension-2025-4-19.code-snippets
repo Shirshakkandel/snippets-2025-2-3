@@ -46,11 +46,23 @@
 		],
 		"description": "Key explanations for manifest.json fields in a browser extension"
 	},
+	"Set Badge Text on Installation": {
+		"prefix": "OnInstallSetBadgeExtension",
+		"body": [
+			"//prefix=>OnInstallSetBadgeExtension ",
+			"${1|browser,chrome|}.runtime.onInstalled.addListener(() => {",
+			"  ${1|browser,chrome|}.action.setBadgeText({",
+			"    text: \"OFF\",",
+			"  });",
+			"});"
+		],
+		"description": "Sets the badge text to 'OFF' when the extension is installed or updated."
+	},
 	"Send Message with chrome.tabs.sendMessage": {
 		"prefix": "tabSendMessageExten",
 		"body": [
 			"//prefix=>tabSendMessage ",
-			"chrome.tabs.sendMessage(tabId, {",
+			"${1|browser,chrome|}.tabs.sendMessage(tabId, {",
 			"  type: '${2:NEW}',",
 			"  ${3:other things to send}",
 			"});"
@@ -61,7 +73,7 @@
 		"prefix": "tabOnUpdate",
 		"body": [
 			"//prefix=>tabOnUpdate ",
-			"chrome.tabs.onUpdated.addListener((tabId,tab)=>  {",
+			"${1|browser,chrome|}.tabs.onUpdated.addListener((tabId,tab)=>  {",
 			"${1://things to be change}",
 			"});"
 		],
@@ -70,7 +82,7 @@
 	"Chrome Runtime onMessage Listener": {
 		"prefix": "runtimeOnMessage",
 		"body": [
-			"chrome.runtime.onMessage.addListener((obj, sender, response) => {",
+			"${1|browser,chrome|}.runtime.onMessage.addListener((obj, sender, response) => {",
 			"  const { type ${1:} } = obj;",
 			"});"
 		],
@@ -113,5 +125,54 @@
 			"}"
 		],
 		"description": "A template for a Chrome extension manifest.json file."
+	},
+	"actionGetBadgeText": {
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"prefix": "actionGetBadgeText",
+		"body": [
+			"const prevState = await ${1|browser,chrome|}.action.getBadgeText({ tabId: ${2:tab.id} });"
+		],
+		"description": "Get the badge text for the specified tab."
+	},
+	"actionSetBadgeText": {
+		"prefix": "actionSetBadgeText",
+		"body": [
+			"await ${1|browser,chrome|}.action.setBadgeText({",
+			"  tabId: ${2:tab.id},",
+			"  text: ${3:nextState},",
+			"});"
+		],
+		"description": "Sets the badge text for the specified tab."
+	},
+	"Insert CSS Snippet": {
+		"prefix": "scriptingInsertRemoveCssExtension",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"await ${1|browser,chrome|}.scripting.${2|insertCSS,removeCSS|}({",
+			"  files: ['focus-mode.css'],",
+			"  target: { tabId: ${3:tab.id}},",
+			"});"
+		],
+		"description": "Inserts CSS file into the active tab."
+	},
+	"chromeStorageGet": {
+		"prefix": "getStorageLocal",
+		"body": [
+			"${1|browser,chrome|}.storage.${2|sync,local|}.get(['${3:key}'], res => {",
+			"  const ${4:variable} = res.${3:key} ?? ${5:defaultValue};",
+			"  $0",
+			"});"
+		],
+		"description": "Snippet for chrome.storage.local.get with placeholders"
+	},
+	"storageLocalSet": {
+		"prefix": "storageLocalSetExtension",
+		"body": [
+			"${1|browser,chrome|}.storage.local.set({",
+			"  ${2:key}: ${3:value},",
+			"  $0",
+			"});"
+		],
+		"description": "Snippet for chrome.storage.local.set with placeholders"
 	}
 }

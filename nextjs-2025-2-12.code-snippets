@@ -11,7 +11,7 @@
 		"scope": "javascript,typescript,javascriptreact,typescriptreact,json,bash",
 		"prefix": "shadcnInstall",
 		"body": [
-			"// ${1|pnpx,npx,yarn|} shadcn@latest init ${2:-d} && ${1} shadcn@latest add "
+			"// ${1|pnpx,npx,yarn|} shadcn@latest init  && ${1} shadcn@latest add "
 		],
 		"description": "Install nextjs latest version first tab for package manager and second tab for folder ./ is for current folder"
 	},

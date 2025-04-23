@@ -13,6 +13,13 @@
 		],
 		"description": "Insert a reduce function to calculate earnings with customizable placeholders"
 	},
+	"Insert Script Tag": {
+		"prefix": "scriptTag",
+		"body": [
+			"<script src=\"${1:popup.js}\"></script>"
+		],
+		"description": "Insert a script tag for popup.js"
+	},
 	"JavaScript Ternary Operator": {
 		"prefix": "ternary",
 		"body": [
@@ -64,5 +71,28 @@
 			"const ${3:variable} = document.getElementsByClassName('${1:class-name}')[${2:index}];"
 		],
 		"description": "Snippet for document.getElementsByClassName with placeholders"
+	},
+	"Get Element By ID": {
+		"prefix": "getElementById",
+		"body": [
+			"const ${2:elementName} = document.getElementById('${1:element-id}');"
+		],
+		"description": "Create a document.getElementById statement"
+	},
+	"Add Event Listener": {
+		"prefix": "addEventListener",
+		"body": [
+			"${1:element}.addEventListener('${2:event}', () => {",
+			"  $0",
+			"});"
+		],
+		"description": "Create an addEventListener structure"
+	},
+	"DateSnippet": {
+		"prefix": "Date",
+		"body": [
+			"const ${3:currentTime} = new Date()${1:.}${2|toLocaleTimeString(),toLocaleDateString()|};"
+		],
+		"description": "Insert current time using Date object"
 	}
 }
