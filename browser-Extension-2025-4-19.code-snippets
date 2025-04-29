@@ -62,10 +62,8 @@
 		"prefix": "tabSendMessageExten",
 		"body": [
 			"//prefix=>tabSendMessage ",
-			"${1|browser,chrome|}.tabs.sendMessage(tabId, {",
-			"  type: '${2:NEW}',",
-			"  ${3:other things to send}",
-			"});"
+			"//received in content script with prefix=>  runtimeOnMessage",
+			"${1|browser,chrome|}.tabs.sendMessage(${2:tabId},${3:message} ${4:,responseCallBack});"
 		],
 		"description": "Send a message using chrome.tabs.sendMessage with dynamic tabId, type, and videoId."
 	},
@@ -82,8 +80,7 @@
 	"Chrome Runtime onMessage Listener": {
 		"prefix": "runtimeOnMessage",
 		"body": [
-			"${1|browser,chrome|}.runtime.onMessage.addListener((obj, sender, response) => {",
-			"  const { type ${1:} } = obj;",
+			"${1|browser,chrome|}.runtime.onMessage.addListener((message, sender, sendResponse) => {",
 			"});"
 		],
 		"description": "Insert a chrome.runtime.onMessage.addListener function."
@@ -174,5 +171,25 @@
 			"});"
 		],
 		"description": "Snippet for chrome.storage.local.set with placeholders"
+	},
+	"onInstalledAddListener": {
+		"prefix": "runTimeOnInstalledAddListener",
+		"body": [
+			"${1|browser,chrome|}.runtime.onInstalled.addListener(details => {",
+			"\t$0",
+			"});"
+		],
+		"description": "Chrome onInstalled addListener structure"
+	},
+	"searchQueryExtension": {
+		"prefix": "searchQueryExtension",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"${1|browser,chrome|}.search.query({",
+			"  disposition: '${2:NEW_TAB}',",
+			"  text: `${3:imdb} ${${4:event.selectionText}}`,",
+			"});"
+		],
+		"description": "Snippet for chrome.search.query with placeholders"
 	}
 }

@@ -52,8 +52,8 @@
 		],
 		"description": "Snippet for defining matches in WXT"
 	},
-	"wxCreateShadowRootUI": {
-		"prefix": "wxCreateShadowRootUI",
+	"wxtCreateShadowRootUI": {
+		"prefix": "wxtCreateShadowRootUI",
 		"body": [
 			"//prefix=> wxCreateShadowRootUI",
 			"uiRef = await createShadowRootUi(ctx, {",
@@ -135,5 +135,67 @@
 			"}"
 		],
 		"description": "Snippet for getting storage item and setting document style property"
+	},
+	"contextMenusExtension": {
+		"prefix": "contextMenusExtension",
+		"scope": "javascript,typescript",
+		"body": [
+			"browser.contextMenus.create({",
+			"  id: '${1:id}',",
+			"  title: '${2:title}',",
+			"  contexts: ['${3:all}'],",
+			"});"
+		],
+		"description": "Create a browser context menu item"
+	},
+	"contextMenusOnClick": {
+		"prefix": "contextMenusOnClickExtension",
+		"scope": "javascript,typescript",
+		"body": [
+			"browser.contextMenus.onClicked.addListener(async (info, tab) => {",
+			"  if (info.menuItemId === '${1:menuItemId}') {",
+			"    browser.tabs.sendMessage(",
+			"      tab?.id!,",
+			"      { action: '${2:action}' },",
+			"      function (response) {",
+			"        console.log('response', response);",
+			"      }",
+			"    );",
+			"  }",
+			"});"
+		],
+		"description": "Add an onClicked listener for browser context menus"
+	},
+	"reactRootRender": {
+		"prefix": "wxtReactRootRender",
+		"body": [
+			"// Container is a body, and React warns when creating a root on the body, so create a wrapper div",
+			"const ${1:app} = document.createElement('div');",
+			"${2:container}.append(${1:app});",
+			"// Create a root on the UI container and render a component",
+			"const ${3:root} = ReactDOM.createRoot(${1:app});",
+			"${3:root}.render(<${4:Component} />);",
+		],
+		"description": "Create a React root and render a component within a container"
+	},
+	"checkIfWeCanInjectUI": {
+		"prefix": "checkIfWeCanInjectUI",
+		"body": [
+			"const whereToShowCustomUI = [new MatchPattern('${1:*://*.example.com/}')];",
+			"",
+			"function checkIfWeCanInjectUI(${2:newUrl}: string) {",
+			"  return whereToShowCustomUI.some(pattern => pattern.includes(${2:newUrl}));",
+			"}"
+		],
+		"description": "Function to check if a URL matches any pattern for UI injection"
+	},
+	"wxtLocationChange": {
+		"prefix": "wxtLocationChange",
+		"body": [
+			"${1:ctx}.addEventListener(window, 'wxt:locationchange', async ({ ${2:newUrl} }) => {",
+			"$0 ",
+			"});"
+		],
+		"description": "Event listener for 'wxt:locationchange' to conditionally mount UI"
 	}
 }

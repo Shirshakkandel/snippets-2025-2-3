@@ -94,5 +94,42 @@
 			"const ${3:currentTime} = new Date()${1:.}${2|toLocaleTimeString(),toLocaleDateString()|};"
 		],
 		"description": "Insert current time using Date object"
+	},
+	"forOf": {
+		"prefix": "forOf",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"for (const ${1:element} of ${2:iterable}) {",
+			"  ${3:// code here}",
+			"}"
+		],
+		"description": "For...of loop structure",
+	},
+	"jsfetch": {
+		"prefix": "jsFetch",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"fetch(`${1:url}`)",
+			"  .then(res => res.json())",
+			"  .then(data => {",
+			"    ${2:// code here}",
+			"  });"
+		],
+		"description": "Fetch API call structure",
+	},
+	"debounce": {
+		"prefix": "debounce",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"let ${1:debounceTimeout}: ReturnType<typeof setTimeout> | null = null;",
+			"const debounce = (${2:func}: () => void, ${3:delay}: number) => {",
+			"  if (${1:debounceTimeout}) {",
+			"    clearTimeout(${1:debounceTimeout});",
+			"  }",
+			"  ${1:debounceTimeout} = setTimeout(${2:func}, ${3:delay});",
+			"};",
+			"//debounce(${4:applyHighlights}, ${5:500});"
+		],
+		"description": "Debounce function to prevent multiple executions"
 	}
 }

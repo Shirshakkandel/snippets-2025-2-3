@@ -1,0 +1,82 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"createElement": {
+		"prefix": "createElement",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"const ${1:elementName} = document.createElement('${2:div}');"
+		],
+		"description": "Create a new DOM element"
+	},
+	"appendChild": {
+		"prefix": "appendChild",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"${1:parentElement}.appendChild(${2:childElement});"
+		],
+		"description": "Append a child element to a parent element"
+	},
+	"querySelector": {
+		"prefix": "querySelector",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"const ${1:variableName} = document.querySelector('${2:selector #id .class tag}');"
+		],
+		"description": "Snippet for querySelector"
+	},
+	"Capture Selection Range": {
+		"prefix": "rangeSelection",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"// Capture the range at the time of mouseup",
+			"const selection = document.getSelection()!;",
+			"const range = selection.rangeCount > 0 ? selection.getRangeAt(0) : null;"
+		],
+		"description": "Snippet to capture the text selection range on mouseup"
+	},
+	"Scroll Position Calculation": {
+		"prefix": "scrollPositionCalculation",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"const rect = ${1:range}.getBoundingClientRect();",
+			"const scrollX = rect.left + window.scrollX;",
+			"const scrollY = rect.bottom + window.scrollY;"
+		],
+		"description": "Snippet to calculate scroll position based on range's bounding rectangle"
+	},
+	"escapeCssSelector": {
+		"prefix": "escapeCssSelector",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"/**",
+			" * Escapes special characters in a CSS selector string to ensure",
+			" * it can be safely used in CSS queries. This function adds a",
+			" * backslash before characters that have special meaning in CSS",
+			" * selectors, such as !, #, $, %, &, (, ), *, +, ,, ., /, :, ;,",
+			" * <, =, >, ?, @, [, \\, ], ^, `, {, |, }, and ~.",
+			" *",
+			" * @param selector - The CSS selector string to be escaped.",
+			" * @returns The escaped CSS selector string.",
+			" */",
+			"const escapeCSSSelector = (selector: string): string => {",
+			"  // Escape special characters in CSS selectors",
+			"  return selector.replace(/([!#$%&()*+,./:;<=>?@[\\]^`{|}~])/g, '\\\\$1');",
+			"};"
+		],
+		"description": "Escape special characters in a CSS selector string."
+	},
+	"localStorageGetItem": {
+		"prefix": "localStorageGetItem",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"const ${2:variableName} = JSON.parse(localStorage.getItem(${1:url}) || '[]');"
+		],
+		"description": "Get item from localStorage and parse JSON"
+	}
+}
