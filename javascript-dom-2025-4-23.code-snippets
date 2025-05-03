@@ -78,5 +78,16 @@
 			"const ${2:variableName} = JSON.parse(localStorage.getItem(${1:url}) || '[]');"
 		],
 		"description": "Get item from localStorage and parse JSON"
+	},
+	"nodeContain": {
+		"prefix": "nodeContain",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"${1:const} ${2:colorBox} = ${3:document}.querySelector('${4:selector}');",
+			"if (${2:colorBox} && ${2:colorBox}.contains(${5:event}.target as Node)) {",
+			"  ${6:// Your code here}",
+			"}"
+		],
+		"description": "Snippet for checking if a node contains a specific event target"
 	}
 }
