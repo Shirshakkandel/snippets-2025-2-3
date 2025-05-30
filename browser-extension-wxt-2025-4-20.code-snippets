@@ -56,17 +56,14 @@
 		"prefix": "wxtCreateShadowRootUI",
 		"body": [
 			"//prefix=> wxCreateShadowRootUI",
-			"uiRef = await createShadowRootUi(ctx, {",
+			"const ${2:uiRef} = await createShadowRootUi(ctx, {",
 			"\tname: '${1:zen-ui}',",
-			"\tposition: '${2:inline}',",
-			"\tanchor: '${3:body}',",
+			"\tposition: 'inline',",
+			"\tanchor: 'body',",
 			"\tonMount: container => {",
-			"\t\t// Container is a body, and React warns when creating a root on the body, so create a wrapper div",
-			"\t\tconst app = document.createElement('div');",
-			"\t\tcontainer.append(app);",
 			"",
 			"\t\t// Create a root on the UI container and render a component",
-			"\t\tconst root = ReactDOM.createRoot(app);",
+			"\t\tconst root = ReactDOM.createRoot(container);",
 			"\t\troot.render(<${4:ZenUI} />);",
 			"\t\treturn root;",
 			"\t},",
@@ -77,7 +74,7 @@
 			"});",
 			"",
 			"// Call mount to add the UI to the DOM",
-			"uiRef?.mount();"
+			"${2:uiRef}?.mount();"
 		],
 		"description": "Snippet for creating and managing a Shadow DOM UI component."
 	},

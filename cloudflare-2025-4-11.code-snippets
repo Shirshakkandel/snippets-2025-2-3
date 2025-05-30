@@ -20,5 +20,25 @@
 			"//cloudflared tunnel --url http://localhost:${1:8080}"
 		],
 		"description": "Snippet to create a Cloudflare tunnel with a customizable URL"
+	},
+	"openNextjsCloudflare": {
+		"prefix": "openNextjsCloudflare",
+		"body": [
+			"// https://opennext.js.org/cloudflare/get-started",
+			"// bun add -D @opennextjs/cloudflare wrangler@latest",
+			"// you may need to disable R2 storage setting in both and delete folder and again run.",
+			"// \"preview\": \"opennextjs-cloudflare build && opennextjs-cloudflare preview\",",
+			"// \"deploy\": \"opennextjs-cloudflare build && opennextjs-cloudflare deploy\",",
+			"// \"upload\": \"opennextjs-cloudflare build && opennextjs-cloudflare upload\",",
+			"// \"cf-typegen\": \"wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts\""
+		],
+		"description": "OpenNext.js Cloudflare setup instructions"
+	},
+	"gitCached": {
+		"prefix": "gitCached",
+		"body": [
+			"//git rm -r --cached ${1:.open-next/}"
+		],
+		"description": "Remove cached files from git"
 	}
 }

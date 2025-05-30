@@ -7,6 +7,21 @@
 		],
 		"description": "Install nextjs latest version first tab for package manager and second tab for folder ./ is for current folder"
 	},
+	"nextjsEslintConfig": {
+		"prefix": "nextjsEslintConfig",
+		"body": [
+			"const eslintConfig = [",
+			"  ...compat.extends('next/core-web-vitals', 'next/typescript'),",
+			"  {",
+			"    rules: {",
+			"      '@typescript-eslint/no-explicit-any': 'off',",
+			"      '@typescript-eslint/no-unused-vars': 'off',",
+			"    },",
+			"  },",
+			"];"
+		],
+		"description": "ESLint configuration for Next.js projects"
+	},
 	"0. shadcn install": {
 		"scope": "javascript,typescript,javascriptreact,typescriptreact,json,bash",
 		"prefix": "shadcnInstall",
@@ -14,6 +29,32 @@
 			"// ${1|pnpx,npx,yarn|} shadcn@latest init  && ${1} shadcn@latest add "
 		],
 		"description": "Install nextjs latest version first tab for package manager and second tab for folder ./ is for current folder"
+	},
+	"nextBundleAnalyzer": {
+		"prefix": "nextBundleAnalyzer",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"import type { NextConfig } from 'next';",
+			"import bundleAnalyzer from '@next/bundle-analyzer';",
+			"",
+			"// Configure the bundle analyzer",
+			"const withBundleAnalyzer = bundleAnalyzer({",
+			"  enabled: process.env.ANALYZE === 'true', // Enable the analyzer only when ANALYZE=true",
+			"  openAnalyzer: true, // Automatically open the report in your browser (optional)",
+			"});",
+			"",
+			"const nextConfig: NextConfig = {",
+			"  images: {",
+			"    remotePatterns: [",
+			"      new URL('${1:https://example.com/**}'),",
+			"    ],",
+			"  },",
+			"};",
+			"",
+			"// Export the config wrapped with the bundle analyzer",
+			"export default withBundleAnalyzer(nextConfig);"
+		],
+		"description": "Next.js configuration with bundle analyzer setup"
 	},
 	"1.Next.js Dynamic Page": {
 		"scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -37,6 +78,18 @@
 			"}"
 		],
 		"description": "Create a Next.js dynamic page component with a slug parameter"
+	},
+	"nextjsDynamicImport": {
+		"prefix": "nextjsDynamicImport",
+		"body": [
+			"import dynamic from 'next/dynamic';",
+			"",
+			"export const ${1:ComponentName} = dynamic(",
+			"  () => import('${2:componentPath}'),",
+			"  { ssr: ${3:true} },",
+			");"
+		],
+		"description": "Dynamic import structure for Next.js components"
 	},
 	"2.Version 14  Next.js Dynamic Page": {
 		"scope": "javascript,typescript,javascriptreact,typescriptreact",

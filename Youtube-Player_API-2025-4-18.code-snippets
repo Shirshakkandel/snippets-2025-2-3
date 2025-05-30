@@ -136,5 +136,47 @@
 			"</script>"
 		],
 		"description": "YouTube Player API with border color change based on player state"
+	},
+	"youtubeIframeLoad": {
+		"prefix": "youtubeIframeLoad",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"const tag = document.createElement('script');",
+			"tag.src = 'https://www.youtube.com/iframe_api';",
+			"const firstScriptTag = document.getElementsByTagName('script')[0];",
+			"firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);"
+		],
+		"description": "Load YouTube Iframe API script"
+	},
+	"youtubeIframeloadAndInitialize": {
+		"prefix": "youtubeIframeLoadAndInitialize",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"useEffect(() => {",
+			"  const tag = document.createElement('script');",
+			"  tag.src = 'https://www.youtube.com/iframe_api';",
+			"  const firstScriptTag = document.getElementsByTagName('script')[0];",
+			"  firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);",
+			"",
+			"  window.onYouTubeIframeAPIReady = () => {",
+			"    const ytPlayer = new window.YT.Player('${1:youtube-player}', {",
+			"      events: {",
+			"        onReady: (event: { target: YT.Player }) => {",
+			"          ${2:setPlayer}(event.target);",
+			"          setInterval(() => {",
+			"            ${3:setCurrentTime}(event.target.getCurrentTime());",
+			"          }, 1000);",
+			"        },",
+			"        onApiChange: () => {}",
+			"      }",
+			"    });",
+			"  };",
+			"",
+			"  return () => {",
+			"    delete window.onYouTubeIframeAPIReady;",
+			"  };",
+			"}, [${4:player}]);"
+		],
+		"description": "Load YouTube IFrame API script and initialize player"
 	}
 }

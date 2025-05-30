@@ -131,5 +131,17 @@
 			"//debounce(${4:applyHighlights}, ${5:500});"
 		],
 		"description": "Debounce function to prevent multiple executions"
+	},
+	"regex": {
+		"prefix": "regexAlphaNumericHyphens",
+		"body": [
+			"//https://regexr.com/=>  Regex pattern for alphanumeric characters with hyphens",
+			"// ^ => start of string",
+			"// [a-zA-Z0-9-] => matches any single alphanumeric character or hyphen",
+			"// + => quantifier matches one or more occurrences",
+			"// $ => end of the string",
+			"/^[$1a-zA-Z0-9-]+$/"
+		],
+		"description": "Regex pattern for alphanumeric characters with structure placeholders and comments"
 	}
 }

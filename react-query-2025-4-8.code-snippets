@@ -6,7 +6,7 @@
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
 	// Placeholders with the same ids are connected.
 	"RTQProviders Component": {
-		"prefix": "RtqQueryProviderNextjs",
+		"prefix": "reactQueryProvider",
 		"scope": "javascriptreact,typescriptreact,json",
 		"body": [
 			"//https://tanstack.com/query/latest/docs/framework/react/guides/advanced-ssr#server-components--nextjs-app-router",
@@ -65,5 +65,16 @@
 			"}"
 		],
 		"description": "RTQProviders component setup for Next.js applications using React Query."
+	},
+	"tanstackQuery": {
+		"prefix": "tanstackQuery",
+		"scope": "html,css,javascript,typescript,javascriptreact,typescriptreact,json",
+		"body": [
+			"//https://tanstack.com/query/latest/docs/framework/react/overview#enough-talk-show-me-some-code-already",
+			"//https://tanstack.com/query/latest/docs/framework/react/guides/ssr",
+			"//https://tanstack.com/query/latest/docs/framework/react/guides/advanced-ssr",
+			"//bun add @tanstack/react-query axios && bun add -D @tanstack/eslint-plugin-query @tanstack/react-query-devtools"
+		],
+		"description": "Tanstack Query setup links and commands"
 	}
 }

@@ -47,5 +47,26 @@
 			"});"
 		],
 		"description": "Import Shadcn form components and set up a basic form schema"
-	}
+	},
+	"Snippet Creator": {
+		"prefix": "snippet",
+		"body": [
+			"\t\"${1:Snippet Name}\": {",
+			"\t\t\"prefix\": \"${2:prefix}\",",
+			"\t\t\"body\": [",
+			"\t\t\t\"// Your snippet code here - $0\",",
+			"\t\t\t\"$0\"",
+			"\t\t],",
+			"\t\t\"description\": \"${3:Description}\"",
+			"\t},",
+		],
+		"description": "Create a new VS Code snippet"
+	},
+	"Shadcn Theme": {
+		"prefix": "shadcnThemeSelection",
+		"body": [
+			"// https://tweakcn.com/editor/theme",
+		],
+		"description": "Shadcn theme customization"
+	},
 }

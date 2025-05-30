@@ -17,5 +17,14 @@
 			"Only return the raw JSON snippet, nothing else."
 		],
 		"description": "Prompt to generate a dynamic VS Code snippet"
+	},
+	"SectionSeparator": {
+		"prefix": "SectionSeparator",
+		"body": [
+			"//===============================================================================================================",
+			"//SECTION::${1:UI PART}",
+			"//==============================================================================================================="
+		],
+		"description": "Insert a section separator with customizable label"
 	}
 }

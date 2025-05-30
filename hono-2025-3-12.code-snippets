@@ -320,5 +320,15 @@
 			"",
 		],
 		"description": "Insert a customizable Hono route"
+	},
+	"Hono Infer Response Type": {
+		"prefix": "HonoInferResponseType",
+		"body": [
+			"type ${1:TVideoInfo} = Extract<",
+			"  InferResponseType<typeof ${2:honoClient}.${3:youtube}.${4:video}.$get>,",
+			"  { data: unknown }",
+			">['data'];"
+		],
+		"description": "Snippet for Hono InferResponseType with Extract"
 	}
 }

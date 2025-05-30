@@ -1,0 +1,21 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	"YoutubeDataApiSetup": {
+		"prefix": "YoutubeDataApiSetup",
+		"body": [
+			"// https://www.youtube.com/watch?v=I32ri7v3SYk&t=2445s&ab_channel=KishanSheth",
+			"//1. https://console.cloud.google.com/home/dashboard",
+			"//2. Enable APi and services =>  https://console.cloud.google.com/apis/dashboard",
+			"//3. Search youtube Data API v3 and enable it => https://console.cloud.google.com/apis/library/youtube.googleapis.com",
+			"//4. After someTime click create credentials",
+			"//5. after selecting public we will get api key we can also restrict it.",
+			"//6. YOUTUBE_API_KEY in .env"
+		],
+		"description": "Setup steps for YouTube Data API"
+	}
+}
